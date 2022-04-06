@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="构建web服务器一、http模块 http模块是node.js的内置系统模块，可以直接通过require调用 http模块主要用来构建web服务器  1.1 构建简单web服务 实现步骤：  创建项目文件夹web,在文件夹中创建app.js文件 123456789101112131415&#x2F;&#x2F; 引入http模块const http &#x3D; require(&amp;#x27;http&amp;#x27;);&#x2F;&#x2F; 创建h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node模块2">
+<meta property="og:url" content="http://example.com/2022/04/06/node%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%972/index.html">
+<meta property="og:site_name" content="亚丽的博客">
+<meta property="og:description" content="构建web服务器一、http模块 http模块是node.js的内置系统模块，可以直接通过require调用 http模块主要用来构建web服务器  1.1 构建简单web服务 实现步骤：  创建项目文件夹web,在文件夹中创建app.js文件 123456789101112131415&#x2F;&#x2F; 引入http模块const http &#x3D; require(&amp;#x27;http&amp;#x27;);&#x2F;&#x2F; 创建h">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/04/06/node%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%972/image-20210527062754598.png">
+<meta property="article:published_time" content="2022-04-06T08:46:26.000Z">
+<meta property="article:modified_time" content="2022-04-06T09:01:55.313Z">
+<meta property="article:author" content="亚丽">
+<meta property="article:tag" content="node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/04/06/node%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%972/image-20210527062754598.png">
+
+<link rel="canonical" href="http://example.com/2022/04/06/node%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%972/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>node模块2 | 亚丽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">亚丽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/06/node%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%972/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="亚丽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="亚丽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          node模块2
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-06 16:46:26 / 修改时间：17:01:55" itemprop="dateCreated datePublished" datetime="2022-04-06T16:46:26+08:00">2022-04-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="构建web服务器"><a href="#构建web服务器" class="headerlink" title="构建web服务器"></a>构建web服务器</h2><h3 id="一、http模块"><a href="#一、http模块" class="headerlink" title="一、http模块"></a>一、http模块</h3><ul>
+<li>http模块是node.js的内置系统模块，可以直接通过require调用</li>
+<li>http模块主要用来构建web服务器</li>
+</ul>
+<h4 id="1-1-构建简单web服务"><a href="#1-1-构建简单web服务" class="headerlink" title="1.1 构建简单web服务"></a>1.1 构建简单web服务</h4><ul>
+<li><p>实现步骤：</p>
+<ul>
+<li><p>创建项目文件夹web,在文件夹中创建app.js文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入http模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建http服务</span></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// request 表示客户端传过给服务器的的请求信息 </span></span><br><span class="line">  <span class="comment">// response 表示服务器给客户端的响应信息  </span></span><br><span class="line">  <span class="comment">// 设置响应头部</span></span><br><span class="line">  response.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/plain&#x27;</span>&#125;);</span><br><span class="line">  <span class="comment">// 设置响应内容  </span></span><br><span class="line">  response.<span class="title function_">write</span>(<span class="string">&#x27;Hello World!&#x27;</span>);  </span><br><span class="line">  <span class="comment">// 结束响应</span></span><br><span class="line">  response.<span class="title function_">end</span>();</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">8081</span>); <span class="comment">// 设置http服务端口</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server running at http://127.0.0.1:8081/&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>还可以安装node-snippets插件，快速生成http服务代码</p>
+<p><img src="/2022/04/06/node%E7%B3%BB%E7%BB%9F%E6%A8%A1%E5%9D%972/image-20210527062754598.png" alt="image-20210527062754598"></p>
+</li>
+</ul>
+</li>
+<li><p>运行http服务</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node http.js</span><br></pre></td></tr></table></figure></li>
+<li><p>访问网站</p>
+</li>
+</ul>
+</li>
+<li><p>设置汉字编码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入http模块</span></span><br><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="comment">// 创建http服务</span></span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 设置响应头部(设置响应文档类型为html，设置汉字编码为utf-8)</span></span><br><span class="line">  response.<span class="title function_">writeHead</span>(<span class="number">200</span>, &#123;<span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;text/html;charset=utf-8&#x27;</span>&#125;);</span><br><span class="line">  <span class="comment">// 设置响应的汉字编码，与响应头部的编码保持一致</span></span><br><span class="line">  response.<span class="title function_">write</span>(<span class="string">&#x27;&lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;/head&gt;&#x27;</span>);</span><br><span class="line">  <span class="comment">// 设置响应内容  </span></span><br><span class="line">  response.<span class="title function_">write</span>(<span class="string">&#x27;你好,node.js!&#x27;</span>);  </span><br><span class="line">  <span class="comment">// 结束响应</span></span><br><span class="line">  response.<span class="title function_">end</span>();</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">8081</span>); <span class="comment">// 设置http服务端口</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Server running at http://127.0.0.1:8081/&#x27;</span>);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="1-2-nodemon模块"><a href="#1-2-nodemon模块" class="headerlink" title="1.2 nodemon模块"></a>1.2 nodemon模块</h4><ul>
+<li><p>默认情况，每次修改项目中js文件中的代码后都需要手动重新启动此文件才会生效，这样会很麻烦，可以通过安装nodemon模块来解决这一问题  （ 此外supervisor模块也可以提供类似功能 )</p>
+</li>
+<li><p>安装nodemon</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install nodemon <span class="literal">-g</span></span><br></pre></td></tr></table></figure></li>
+<li><p>通过nodemon启动文件</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodemon app.js</span><br></pre></td></tr></table></figure></li>
+<li><p>可能会出现的问题:</p>
+<ul>
+<li><p>解决方案：</p>
+<p>1.以管理员身份打开PowerShell</p>
+<p>2.在命令行中输入：set-ExecutionPolicy RemoteSigned </p>
+<p>3.选择Y或A即可</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="二、url模块"><a href="#二、url模块" class="headerlink" title="二、url模块"></a>二、url模块</h3><ul>
+<li>url模块是node.js的内置系统模块，可以直接通过require调用</li>
+<li>http模块主要用来解析url地址</li>
+</ul>
+<h4 id="2-1-url-parse"><a href="#2-1-url-parse" class="headerlink" title="2.1 url.parse()"></a>2.1 url.parse()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li><p>解析url</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入http模块</span></span><br><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>);</span><br><span class="line"><span class="comment">// 引入url模块</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span>  testUrl = <span class="string">&quot;http://www.baidu.com:80/index.html?username=node&amp;age=18&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(url.<span class="title function_">parse</span>(testUrl));</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>输出结果：</p>
+</li>
+</ul>
+</li>
+<li><p>获取请求的文件名</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(url.<span class="title function_">parse</span>(testUrl).<span class="property">pathname</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>获取url中所传参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> urlQuery = url.<span class="title function_">parse</span>(testUrl,<span class="literal">true</span>).<span class="property">query</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(urlQuery)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(urlQuery.<span class="property">username</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(urlQuery.<span class="property">age</span>)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-2-url-format"><a href="#2-2-url-format" class="headerlink" title="2.2 url.format()"></a>2.2 url.format()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>将url对象格式化为url字符串</li>
+</ul>
+</li>
+<li><p>demo:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&quot;url&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> urlObj = &#123;</span><br><span class="line">    <span class="attr">protocol</span>:<span class="string">&#x27;http&#x27;</span>,</span><br><span class="line">    <span class="attr">hostname</span>:<span class="string">&#x27;www.test.com&#x27;</span>,</span><br><span class="line">    <span class="attr">port</span>:<span class="number">12345</span>,</span><br><span class="line">    <span class="attr">pathname</span>:<span class="string">&#x27;/index/demo.html&#x27;</span>,</span><br><span class="line">    <span class="attr">query</span>:&#123;</span><br><span class="line">      <span class="attr">username</span>:<span class="string">&quot;张三&quot;</span>,</span><br><span class="line">      <span class="attr">age</span>:<span class="number">12</span></span><br><span class="line">    &#125;,  </span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( url.<span class="title function_">format</span>(urlObj) );</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="2-3-url-resolve"><a href="#2-3-url-resolve" class="headerlink" title="2.3 url.resolve()"></a>2.3 url.resolve()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>为URL或 href 插入 或 替换原有的路径</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url.<span class="title function_">resolve</span>(<span class="keyword">from</span>,to)</span><br><span class="line"><span class="comment">//from 源地址</span></span><br><span class="line"><span class="comment">//to 需要添加或替换的标签</span></span><br></pre></td></tr></table></figure></li>
+<li><p>demo:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">&#x27;url&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> a = url.<span class="title function_">resolve</span>(<span class="string">&#x27;http://example.com/&#x27;</span>, <span class="string">&#x27;/one&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> b = url.<span class="title function_">resolve</span>(<span class="string">&#x27;http://example.com/one&#x27;</span>, <span class="string">&#x27;/two&#x27;</span>);</span><br><span class="line"><span class="keyword">let</span> c = url.<span class="title function_">resolve</span>(<span class="string">&#x27;http://example.com/one/two/three&#x27;</span>, <span class="string">&#x27;four&#x27;</span>) ;</span><br><span class="line"><span class="keyword">let</span> d = url.<span class="title function_">resolve</span>(<span class="string">&#x27;http://example.com/one/two/three&#x27;</span>, <span class="string">&#x27;/four&#x27;</span>) ;</span><br><span class="line"><span class="keyword">let</span> e = url.<span class="title function_">resolve</span>(<span class="string">&#x27;http://example.com/one/two/three&#x27;</span>, <span class="string">&#x27;../four&#x27;</span>) ;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(d);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(e);</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="三、fs模块"><a href="#三、fs模块" class="headerlink" title="三、fs模块"></a>三、fs模块</h3><ul>
+<li>fs模块是node.js的内置系统模块，可以直接通过require调用</li>
+<li>fs可以对文件和文件夹进行操作,比如读取、写入、创建、删除等</li>
+</ul>
+<h4 id="3-1-fs-exists"><a href="#3-1-fs-exists" class="headerlink" title="3.1 fs.exists()"></a>3.1 fs.exists()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>判断文件是否存在,返回true或false</li>
+</ul>
+</li>
+<li><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 异步任务</span></span><br><span class="line">fs.<span class="title function_">exists</span>(<span class="string">&quot;./views&quot;</span> , <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同步任务</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( fs.<span class="title function_">existsSync</span>(<span class="string">&#x27;./views&#x27;</span>) );</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>大多数fs模块的方法都分为同步和异步两种，异步通过回调函数返回结果 ，同步没有回调函数，直接返回结果</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-2-fs-stat"><a href="#3-2-fs-stat" class="headerlink" title="3.2 fs.stat()"></a>3.2 fs.stat()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li> 获取文件状态信息</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">stat</span>(<span class="string">&quot;./views&quot;</span>,<span class="function">(<span class="params">err,data</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取文件状态信息</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br><span class="line">    <span class="comment">// 判断是否是目录</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">isDirectory</span>())</span><br><span class="line">    <span class="comment">// 判断是否是普通文件</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">isFile</span>())    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-3-fs-mkdir"><a href="#3-3-fs-mkdir" class="headerlink" title="3.3 fs.mkdir()"></a>3.3 fs.mkdir()</h4><ul>
+<li><p>作用</p>
+<ul>
+<li>创建目录</li>
+</ul>
+</li>
+<li><p>语法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">mkdir</span>(<span class="string">&quot;./css&quot;</span>,<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;创建成功&quot;</span>);</span><br><span class="line">   </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-4-fs-writeFile"><a href="#3-4-fs-writeFile" class="headerlink" title="3.4 fs.writeFile()"></a>3.4 fs.writeFile()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>向文件中写入内容</li>
+<li>文件不存在时，会自动创建文件</li>
+<li>重复写入会覆盖原内容</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&quot;./views/index.html&quot;</span>,<span class="string">&quot;Hello World!&quot;</span>,<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;写入成功&quot;</span>); </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-5-fs-appendFile"><a href="#3-5-fs-appendFile" class="headerlink" title="3.5 fs.appendFile()"></a>3.5 fs.appendFile()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>向文件中追加写入内容</li>
+<li>文件不存在时，会自动创建文件</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">appendFile</span>(<span class="string">&quot;./views/index.html&quot;</span> , <span class="string">&quot;第一句话\n&quot;</span> , <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;追加写入成功&quot;</span>); </span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">appendFile</span>(<span class="string">&quot;./views/index.html&quot;</span>,<span class="string">&quot;第二句话&quot;</span>,<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;追加写入成功&quot;</span>); </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-6-fs-readFille"><a href="#3-6-fs-readFille" class="headerlink" title="3.6 fs.readFille"></a>3.6 fs.readFille</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>读取文件内容</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&quot;./views/index.html&quot;</span>, <span class="function">(<span class="params">err,data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 默认接收到的是Buffer类型，可以通过toString()转换为字符串</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data); </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data.<span class="title function_">toString</span>()); </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-7-fs-readdir"><a href="#3-7-fs-readdir" class="headerlink" title="3.7 fs.readdir"></a>3.7 fs.readdir</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>读取目录</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">readdir</span>(<span class="string">&quot;./&quot;</span>, <span class="function">(<span class="params">err,data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="comment">// 返回目录下所有文件名称组成的数组</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(data);    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-8-fs-rename"><a href="#3-8-fs-rename" class="headerlink" title="3.8  fs.rename()"></a>3.8  fs.rename()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li><p>重命名文件或目录(同一目录下)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&#x27;./index.html&#x27;</span>,<span class="string">&#x27;./test.html&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;重命名成功&#x27;</span>);    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<li><p>移动文件或目录(不同目录下)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&#x27;./test.html&#x27;</span>,<span class="string">&#x27;./views/test.html&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; </span><br><span class="line">    </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;移动文件成功&#x27;</span>);    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-9-fs-unlink"><a href="#3-9-fs-unlink" class="headerlink" title="3.9 fs.unlink"></a>3.9 fs.unlink</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>删除文件</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">unlink</span>(<span class="string">&quot;./test.html&quot;</span>, <span class="function">(<span class="params">err,data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(err);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125; </span><br><span class="line"> </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;删除文件成功&#x27;</span>);    </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="3-10-fs-rmdir"><a href="#3-10-fs-rmdir" class="headerlink" title="3.10 fs.rmdir"></a>3.10 fs.rmdir</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>删除目录(只能删除空目录)</li>
+<li>删除非空目录需要先将目录中的文件删除之后，再删除目录</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过递归函数删除非空目录</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">delDir</span>(<span class="params">dir</span>)&#123;</span><br><span class="line">    fs.<span class="title function_">readdirSync</span>(dir).<span class="title function_">map</span>(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> filepath = dir + <span class="string">&quot;/&quot;</span> + v;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(fs.<span class="title function_">statSync</span>(filepath).<span class="title function_">isDirectory</span>())&#123;</span><br><span class="line">            <span class="title function_">delDir</span>(filepath)             </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            fs.<span class="title function_">unlinkSync</span>(filepath)</span><br><span class="line">        &#125;      </span><br><span class="line">         </span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    fs.<span class="title function_">rmdirSync</span>(dir); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">delDir</span>(<span class="string">&quot;./views&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="四、path模块"><a href="#四、path模块" class="headerlink" title="四、path模块"></a>四、path模块</h3><ul>
+<li>path模块是node.js的内置系统模块，可以直接通过require调用 </li>
+<li>path 模块提供了一些用于处理文件路径的方法</li>
+</ul>
+<h4 id="4-1-path-extname"><a href="#4-1-path-extname" class="headerlink" title="4.1 path.extname()"></a>4.1 path.extname()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>获取path中的文件后缀</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">extname</span>(path)</span><br></pre></td></tr></table></figure></li>
+<li><p>举例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> filepath = <span class="string">&#x27;D:\\code\\node\\index.html&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">extname</span>(filepath));   <span class="comment">//.html          </span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-2-path-basename"><a href="#4-2-path-basename" class="headerlink" title="4.2 path.basename()"></a>4.2 path.basename()</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>获取path中的文件名</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">basename</span>(path[, ext]) </span><br><span class="line"><span class="comment">// ext为扩展名，加了后就不返回扩展名</span></span><br></pre></td></tr></table></figure></li>
+<li><p>举例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> filepath = <span class="string">&#x27;D:\\code\\node\\index.html&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">basename</span>(filepath));                         <span class="comment">// index.html</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">basename</span>(filepath,<span class="string">&#x27;.html&#x27;</span>));                 <span class="comment">// index</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">basename</span>(filepath,path.<span class="title function_">extname</span>(filepath)));  <span class="comment">// index</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="4-3-path-dirname-path"><a href="#4-3-path-dirname-path" class="headerlink" title="4.3 path.dirname(path)"></a>4.3 path.dirname(path)</h4><ul>
+<li><p>作用：</p>
+<ul>
+<li>返回path中目录部分</li>
+</ul>
+</li>
+<li><p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path.<span class="title function_">dirname</span>(path)  </span><br></pre></td></tr></table></figure></li>
+<li><p>举例：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> filepath = <span class="string">&#x27;D:\\code\\node\\index.html&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(path.<span class="title function_">dirname</span>(filepath));    <span class="comment">// D:\code\node</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="五、-构建静态web服务"><a href="#五、-构建静态web服务" class="headerlink" title="五、 构建静态web服务"></a>五、 构建静态web服务</h3><ul>
+<li><p>目录结构</p>
+</li>
+<li><p>app.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">&quot;http&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="comment">// 自定义模块调用</span></span><br><span class="line"><span class="keyword">const</span> mime = <span class="built_in">require</span>(<span class="string">&quot;mime&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http.<span class="title function_">createServer</span>( <span class="function">(<span class="params">req,res</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取请求的页面路径</span></span><br><span class="line">    <span class="keyword">let</span> pathname = req.<span class="property">url</span> == <span class="string">&#x27;/&#x27;</span> ? <span class="string">&#x27;/index.html&#x27;</span> : req.<span class="property">url</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 静态文件目录</span></span><br><span class="line">    <span class="keyword">let</span> dir = <span class="string">&quot;static/&quot;</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 静态文件路径</span></span><br><span class="line">    <span class="keyword">let</span> filepath = dir + pathname;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(pathname !== <span class="string">&#x27;/favicon.ico&#x27;</span>)&#123;</span><br><span class="line">        fs.<span class="title function_">readFile</span>(filepath,<span class="function">(<span class="params">err,data</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(err)&#123;</span><br><span class="line">                res.<span class="title function_">writeHead</span>(<span class="number">404</span>,&#123;<span class="string">&quot;Content-Type&quot;</span>:<span class="string">&quot;text/html;charset=&#x27;utf-8&#x27;&quot;</span>&#125;);  </span><br><span class="line">                res.<span class="title function_">write</span>(<span class="string">&#x27;&lt;head&gt; &lt;meta charset=&quot;utf-8&quot;&gt; &lt;/head&gt;&#x27;</span>);</span><br><span class="line">                res.<span class="title function_">write</span>(<span class="string">&quot;404! 页面不存在&quot;</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="comment">// 获取文件后缀名</span></span><br><span class="line">                <span class="keyword">let</span> ext = path.<span class="title function_">extname</span>(pathname);</span><br><span class="line">                res.<span class="title function_">writeHead</span>(<span class="number">200</span>,&#123;<span class="string">&quot;Content-Type&quot;</span>: mime.<span class="title function_">getmime</span>(ext)+ <span class="string">&quot;;charset=&#x27;utf-8&#x27;&quot;</span>&#125;);</span><br><span class="line">                res.<span class="title function_">write</span>(data);      </span><br><span class="line">            &#125;</span><br><span class="line">            res.<span class="title function_">end</span>();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">8000</span>);</span><br></pre></td></tr></table></figure></li>
+<li><p>自定义获取mime类型的包</p>
+<ul>
+<li><p>创建modules目录，在该目录下创建mime目录，里面主要有以下两个文件</p>
+</li>
+<li><p>index.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&quot;fs&quot;</span>);</span><br><span class="line"><span class="keyword">let</span> <span class="title function_">getmime</span> = ext =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> data = fs.<span class="title function_">readFileSync</span>(<span class="string">&quot;./data/mime.json&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">JSON</span>.<span class="title function_">parse</span>(data.<span class="title function_">toString</span>())[ext];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>.<span class="property">getmime</span> = getmime;</span><br></pre></td></tr></table></figure></li>
+<li><p>package.json</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;mime&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;getmime&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;main&quot;</span><span class="punctuation">:</span> <span class="string">&quot;index.js&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;files&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;index.js&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>初始化npm,通过npm安装自定义包</p>
+<ul>
+<li><p>修改npm的package.json文件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">   <span class="attr">&quot;mime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;file:modules/mime&quot;</span></span><br><span class="line"> <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>执行npm命令进行安装</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i mime <span class="literal">-S</span>   </span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>启动http服务</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nodemon app.js</span><br></pre></td></tr></table></figure></li>
+<li><p>通过浏览访问静态页面</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/node/" rel="tag"># node</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/03/17/hello-world/" rel="prev" title="hexo">
+      <i class="fa fa-chevron-left"></i> hexo
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/06/node%E5%9F%BA%E7%A1%801/" rel="next" title="node基础1">
+      node基础1 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BAweb%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">构建web服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81http%E6%A8%A1%E5%9D%97"><span class="nav-number">1.1.</span> <span class="nav-text">一、http模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E6%9E%84%E5%BB%BA%E7%AE%80%E5%8D%95web%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 构建简单web服务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-nodemon%E6%A8%A1%E5%9D%97"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 nodemon模块</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81url%E6%A8%A1%E5%9D%97"><span class="nav-number">1.2.</span> <span class="nav-text">二、url模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-url-parse"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 url.parse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-url-format"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 url.format()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-url-resolve"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 url.resolve()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81fs%E6%A8%A1%E5%9D%97"><span class="nav-number">1.3.</span> <span class="nav-text">三、fs模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-fs-exists"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 fs.exists()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-fs-stat"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 fs.stat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-fs-mkdir"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 fs.mkdir()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-fs-writeFile"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 fs.writeFile()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-fs-appendFile"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.5 fs.appendFile()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-fs-readFille"><span class="nav-number">1.3.6.</span> <span class="nav-text">3.6 fs.readFille</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-7-fs-readdir"><span class="nav-number">1.3.7.</span> <span class="nav-text">3.7 fs.readdir</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-8-fs-rename"><span class="nav-number">1.3.8.</span> <span class="nav-text">3.8  fs.rename()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-9-fs-unlink"><span class="nav-number">1.3.9.</span> <span class="nav-text">3.9 fs.unlink</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-10-fs-rmdir"><span class="nav-number">1.3.10.</span> <span class="nav-text">3.10 fs.rmdir</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81path%E6%A8%A1%E5%9D%97"><span class="nav-number">1.4.</span> <span class="nav-text">四、path模块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-path-extname"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 path.extname()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-path-basename"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 path.basename()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-path-dirname-path"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 path.dirname(path)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E6%9E%84%E5%BB%BA%E9%9D%99%E6%80%81web%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.5.</span> <span class="nav-text">五、 构建静态web服务</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">亚丽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wuyali-6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wuyali-6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wyl2191854028@163.com" title="E-Mail → mailto:wyl2191854028@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">亚丽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
