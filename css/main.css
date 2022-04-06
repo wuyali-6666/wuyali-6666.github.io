@@ -175,11 +175,7 @@ body {
   height: 100%;
 }
 body {
-  background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fcae00e7e47755fdf2efde5775960d1d1d3ea62d2.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1651837724&t=cc41618c95a4bab7a94a4c1d30b0b899");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 50% 50%;
+  background: var(--body-bg-color);
   color: var(--text-color);
   font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1em;
@@ -1218,7 +1214,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #3b959a;
+  background: #fffff7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
