@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1.微信小程序页面有哪几个文件组成，各有什么作用.wxml .wxss .js .json  ​    1、.wxml 页面的视图结构，类似于vue组件中的template部分或者html文件中的body部分 ​    2、.wxss 页面样式   即css样式 ​    3、.js 页面逻辑  进行逻辑处理和异步请求等 ​    4、.json 页面配置  可以进行页面注册，设置页面标题，引入子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序-面试题">
+<meta property="og:url" content="http://example.com/2017/05/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="亚丽的博客">
+<meta property="og:description" content="1.微信小程序页面有哪几个文件组成，各有什么作用.wxml .wxss .js .json  ​    1、.wxml 页面的视图结构，类似于vue组件中的template部分或者html文件中的body部分 ​    2、.wxss 页面样式   即css样式 ​    3、.js 页面逻辑  进行逻辑处理和异步请求等 ​    4、.json 页面配置  可以进行页面注册，设置页面标题，引入子">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-05-26T04:12:57.000Z">
+<meta property="article:modified_time" content="2022-04-06T07:48:22.889Z">
+<meta property="article:author" content="亚丽">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2017/05/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>小程序-面试题 | 亚丽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">亚丽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/05/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="亚丽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="亚丽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          小程序-面试题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-26 12:12:57" itemprop="dateCreated datePublished" datetime="2017-05-26T12:12:57+08:00">2017-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-06 15:48:22" itemprop="dateModified" datetime="2022-04-06T15:48:22+08:00">2022-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h5 id="1-微信小程序页面有哪几个文件组成，各有什么作用"><a href="#1-微信小程序页面有哪几个文件组成，各有什么作用" class="headerlink" title="1.微信小程序页面有哪几个文件组成，各有什么作用"></a>1.微信小程序页面有哪几个文件组成，各有什么作用</h5><p>.wxml .wxss .js .json </p>
+<p>​    1、.wxml 页面的视图结构，类似于vue组件中的template部分或者html文件中的body部分</p>
+<p>​    2、.wxss 页面样式   即css样式</p>
+<p>​    3、.js 页面逻辑  进行逻辑处理和异步请求等</p>
+<p>​    4、.json 页面配置  可以进行页面注册，设置页面标题，引入子组件或者第三方插件等 </p>
+<h5 id="2-微信小程序配置文件有哪几种，各有什么作用"><a href="#2-微信小程序配置文件有哪几种，各有什么作用" class="headerlink" title="2.微信小程序配置文件有哪几种，各有什么作用"></a>2.微信小程序配置文件有哪几种，各有什么作用</h5><p>​    1、全局配置文件app.json：配置小程序的页面路径，设置小程序的状态栏、导航条、标题、窗口背景色等，还可以配置tabBar对象</p>
+<p>​    2、工具配置project.config.json：用来记录开发者在开发项目时的个性化配置，包括编辑器的颜色、代码上传时自动压缩等一系列选项</p>
+<p>​    3、页面配置文件page.json：在每个页面目录下的json文件，可以独立定义每个页面的一些属性</p>
+<h5 id="3-聊聊微信小程序框架架构系统"><a href="#3-聊聊微信小程序框架架构系统" class="headerlink" title="3. 聊聊微信小程序框架架构系统"></a>3. 聊聊微信小程序框架架构系统</h5><p>​    整个小程序框架系统分为两部分：<strong>逻辑层</strong>（App Service）和 <strong>视图层</strong>（View）。小程序提供了自己的视图层描述语言 <code>WXML</code> 和 <code>WXSS</code>，以及基于 <code>JavaScript</code> 的逻辑层框架，并在视图层与逻辑层间提供了数据传输和事件系统，让开发者能够专注于数据与逻辑。</p>
+<h5 id="4-微信小程序事件如何传值，如何接收传值"><a href="#4-微信小程序事件如何传值，如何接收传值" class="headerlink" title="4.微信小程序事件如何传值，如何接收传值"></a>4.微信小程序事件如何传值，如何接收传值</h5><p>​    通过data-参数名进行传值，通过event.target.dataset.参数名来接收</p>
+<h5 id="5-微信小程序如何接收url地址路由传值"><a href="#5-微信小程序如何接收url地址路由传值" class="headerlink" title="5.微信小程序如何接收url地址路由传值"></a>5.微信小程序如何接收url地址路由传值</h5><p>​    在onLoad钩子函数中通过options接收，options要写在钩子函数的参数中</p>
+<h5 id="6-微信小程序的-wxss-和-css-有哪些不⼀样的地方"><a href="#6-微信小程序的-wxss-和-css-有哪些不⼀样的地方" class="headerlink" title="6.微信小程序的 wxss 和 css 有哪些不⼀样的地方"></a>6.微信小程序的 wxss 和 css 有哪些不⼀样的地方</h5><p>​    1、wxss不能使用sass和less</p>
+<p>​    2、尺寸单位为rpx，可以根据屏幕宽度进行自适应，也可以使用px，在iphone6下 1px=2rpx</p>
+<p>​    3、没有body，是page</p>
+<h5 id="7-微信小程序的js和原生js有哪些不一样的地方"><a href="#7-微信小程序的js和原生js有哪些不一样的地方" class="headerlink" title="7.微信小程序的js和原生js有哪些不一样的地方"></a>7.微信小程序的js和原生js有哪些不一样的地方</h5><p>​    （1）小程序不是运行在浏览器上的，所有没有BOM和DOM对象；</p>
+<p>​    （2）小程序中有一些额外的方法：例如getApp(方法)可以拿到App.js中定义的全局属性和方法；Page方法 用于定义页面对象；</p>
+<p>​    （3）小程序的JS是支持CommonJS规范的（导入导出功能）</p>
+<h5 id="8-微信小程序组件路由和编程路由的实现"><a href="#8-微信小程序组件路由和编程路由的实现" class="headerlink" title="8.微信小程序组件路由和编程路由的实现"></a>8.微信小程序组件路由和编程路由的实现</h5><p>​    1、组件路由：使用navigator双标签进行实现，通过url属性进行跳转，通过open-type属性设置跳转的页面是否是tab页</p>
+<p>​    2、编程路由：首先需要绑定一个点击事件，然后在该事件方法里使用wx.navatorTo或者wx.redirectTo进行非tabBar页的跳转，使用wx.switchTab进行tabBar页面的跳转</p>
+<h5 id="9-微信小程序第三方组件库有哪些？你用过哪几种"><a href="#9-微信小程序第三方组件库有哪些？你用过哪几种" class="headerlink" title="9.微信小程序第三方组件库有哪些？你用过哪几种"></a>9.微信小程序第三方组件库有哪些？你用过哪几种</h5><p>​    Lin-ui、WeUI、Vantage、Weapp、IView Weapp几种</p>
+<p>​    最常用Lin-ui：是基于微信小程序原生语法实现的组件库。遵循简洁 易用的设计规范；使用npm即可安装，使用的时候将使用到的部分在页面的json配置文件中引入就可以在wxml文件中使用了</p>
+<h5 id="10-微信小程序组件间的通信"><a href="#10-微信小程序组件间的通信" class="headerlink" title="10.微信小程序组件间的通信"></a>10.微信小程序组件间的通信</h5><p>​    1、父传子：父组件通过属性向子组件进行传值，子组件通过properties进行接收</p>
+<p>​    2、子传父：子组件通过自定义事件中triggerEvent向父组件传值，父组件监听子组件事件的同时通过even.detail进行值的获取</p>
+<h5 id="11-微信小程序生命周期"><a href="#11-微信小程序生命周期" class="headerlink" title="11.微信小程序生命周期"></a>11.微信小程序生命周期</h5><p>​    1、onLoad：首次进入页面加载时触发，可以再onLoad的参数中获取打开当前页面路径中的参数</p>
+<p>​    2、onShow：加载完成后、后台切到前台或重新进入页面时触发</p>
+<p>​    3、onReady：页面首次渲染完成时触发</p>
+<p>​    4、onHide：从前台切到后台或进入页面时触发</p>
+<p>​    5、onUnload：页面卸载时触发</p>
+<p>​    6、onPullDownRefresh：下拉刷新，监听用户下拉动作</p>
+<p>​    7、onReachBottom：上拉加载，监听页面上拉触底事件</p>
+<p>​    8、onShareAppMessage：用户点击右上角分享</p>
+<h5 id="12-微信小程序数据监听器的作用及实现"><a href="#12-微信小程序数据监听器的作用及实现" class="headerlink" title="12.微信小程序数据监听器的作用及实现"></a>12.微信小程序数据监听器的作用及实现</h5><p>​    1、作用：可以监听和响应任何属性和数据字段的变化，变化时会自动调用，只能在自定义组件中使用，在页面组件中无效</p>
+<p>​    2、实现：使用attached进行setData设置，使用observes对setData的监听，使用 **可以监听所有的setData</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Component</span>(&#123;</span><br><span class="line">  <span class="attr">observers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;numberA, numberB&#x27;</span>: <span class="keyword">function</span>(<span class="params">numberA, numberB</span>) &#123;</span><br><span class="line">      <span class="comment">// 在 numberA 或者 numberB 被设置时，执行这个函数</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span><br><span class="line">        <span class="attr">sum</span>: numberA + numberB</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="13-聊聊微信小程序中的behavios"><a href="#13-聊聊微信小程序中的behavios" class="headerlink" title="13.聊聊微信小程序中的behavios"></a>13.聊聊微信小程序中的behavios</h5><p>​    1、behaviors是用于组件间的代码共享的特性</p>
+<p>​    2、每个behavior都可以包含一组属性、数据、生命周期函数和方法</p>
+<p>​    3、组件引用behaviors时，它的属性、数据和方法会被合并到组件中，生命周期函数也会在对应的时机被调用</p>
+<p>​    4、每个组件可以引用多个behaviors，behaviors也可以引用其他behaviors</p>
+<h5 id="14-微信小程序中如何显示html标签内容"><a href="#14-微信小程序中如何显示html标签内容" class="headerlink" title="14.微信小程序中如何显示html标签内容"></a>14.微信小程序中如何显示html标签内容</h5><p>一、rich-text</p>
+<p>​    是小程序官方提供的一个富文本标签</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">rich-text</span> <span class="attr">nodes</span>=<span class="string">&quot;&#123;&#123;content&#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">rich-text</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>​    content是在js中定义的html内容</p>
+<p>二、wxparse</p>
+<p>​    1、下载wxparse</p>
+<p>​    2、将其中的wxparse目录复制到小程序的项目根目录下</p>
+<p>​    3、在app.wxss中引入wxparse.wxss </p>
+<p>​    4、在需要加载html内容的页面对应的js文件中引入wxparse.js文件</p>
+<p>​    5、通过调用WxParse.wxParse方法来设置html内容</p>
+<h5 id="15-微信小程序中如何实现授权登录"><a href="#15-微信小程序中如何实现授权登录" class="headerlink" title="15.微信小程序中如何实现授权登录"></a>15.微信小程序中如何实现授权登录</h5><p>第一步: 定义button属性，获取用户昵称及头像路径</p>
+<p>第二步:调用wx.login()方法，获得code并该code作为参数传到后端</p>
+<p>第三步:后端将该code 、和appId 、appSecret，作为后端url的参数，调用该微信后端接口，从而得到openid 和 session_key  [提示，安全起见，前端除code之外，其余参数后端直接给参，不做前端参数传递（参数说明：appid//开发者设置中的appid，appSecret//开发者设置中的appSecret，code//小程序调用wx.login返回的code，grant_type//默认参数 authorization_code；）</p>
+<p>第四步:将openid 和 session_key 做处理，根据openid去数据库查询，判断是新用户还是老用户登录（老用户直接放行，新用户先入库再放行）</p>
+<p>第五步:返回用户的 openid </p>
+<p>第六步:小程序端将openid缓存，在其他业务请求时可将其作为参数。</p>
+<p>第七步:登录成功进入小程序</p>
+<h5 id="16-web-view组件"><a href="#16-web-view组件" class="headerlink" title="16.web-view组件"></a>16.web-view组件</h5><ul>
+<li><p>web-view 组件是一个可以用来承载网页的容器，会自动铺满整个小程序页面。简单来说，这个组件是一个和当前页面一样大小的容器，容器里显示的是属性src引用的url的内容。类似于html中的iframe框架。不同的是iframe可以自定义大小边框等样式，webview自动铺满整个小程序页面。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- wxml --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- src地址是需要指向的网站地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-view</span> <span class="attr">src</span>=<span class="string">&quot;https://mp.weixin.qq.com/&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">web-view</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>web-view组件限制</p>
+<ul>
+<li>使用限制：对个人类型和海外类型的小程序暂不支持</li>
+<li>指向域名的限制：域名必须为https协议且经过ICP备案<ul>
+<li>注：配置域名时，并不是随便一个备案过的https就可以的，需要从配置后台下载校验文件放在域名根目录下，验证通过后才能配置成功</li>
+</ul>
+</li>
+<li>域名修改限制：一个小程序最多可添加20个域名，一年可修改50次</li>
+<li>小程序基础库限制：基础裤1.6.4以上版本支持这个组件，低版本需做兼容</li>
+</ul>
+</li>
+<li><p>web-view网页和小程序的联系</p>
+<ul>
+<li><p>小程序提供了webview网页中使用的JSSDK文件，引用方式如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://res.wx.qq.com/open/js/jweixin-1.3.0.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wx.<span class="property">miniProgram</span>.<span class="title function_">switchTab</span>(&#123;<span class="attr">url</span>: <span class="string">&#x27;/pages/usercenter/usercenter&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h5 id="17-scroll-view组件"><a href="#17-scroll-view组件" class="headerlink" title="17.scroll-view组件"></a>17.scroll-view组件</h5><ul>
+<li><p>实现横向滚动和竖向滚动</p>
+<ul>
+<li><p>竖向滚动</p>
+<ul>
+<li><p>首先得设置<code>scroll-y</code>属性；</p>
+</li>
+<li><p>其次，一定要给<code>scroll-view</code>设置一个<code>height</code>高度；</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scroll-view</span> <span class="attr">scroll-y</span> <span class="attr">style</span>=<span class="string">&quot;height: 200px;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>A<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>B<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>C<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span>D<span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">scroll-view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    scroll-view view&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">width</span>: <span class="number">100%</span>; <span class="attribute">height</span>: <span class="number">200px</span>; </span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: green;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: skyblue;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: pink;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: orange;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>横向滚动</p>
+<ul>
+<li><p>首先还是要设置滚动方向为<code>scroll-x</code>；</p>
+</li>
+<li><p>然后要给<code>&lt;scroll-view&gt;&lt;/scroll-view&gt;</code>设置<code>white-space</code>为<code>nowrap</code>不换行；</p>
+</li>
+<li><p>最后需要将容器中包裹的标签的<code>display</code>属性设置为<code>inline-block</code>。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">scroll-view</span> <span class="attr">scroll-x</span> <span class="attr">style</span>=<span class="string">&quot;width: 100%; white-space: nowrap;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">view</span>&gt;</span><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">scroll-view</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css">    scroll-view view&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">display</span>: inline-block; <span class="attribute">width</span>: <span class="number">200px</span>; <span class="attribute">height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: green;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: skyblue;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: pink;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css">    scroll-view view<span class="selector-pseudo">:nth-of-type</span>(<span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="language-css">        <span class="attribute">background</span>: orange;</span></span><br><span class="line"><span class="language-css">    &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="18-比较bindtap和catchtap"><a href="#18-比较bindtap和catchtap" class="headerlink" title="18.比较bindtap和catchtap"></a>18.比较bindtap和catchtap</h5><ul>
+<li>相同点：首先他们都是作为点击事件函数，就是点击时触发。在这个作用上他们是一样的，可以不做区分</li>
+<li>不同点：他们的不同点主要是bindtap是不会阻止冒泡事件的，catchtap是阻值冒泡的</li>
+<li>非冒泡事件<ul>
+<li>如<form>的submit事件，<input>的input事件，<scroll-view>的scroll事件</scroll-view></form></li>
+</ul>
+</li>
+</ul>
+<h5 id="19-微信小程序与H5的区别"><a href="#19-微信小程序与H5的区别" class="headerlink" title="19.微信小程序与H5的区别"></a>19.微信小程序与H5的区别</h5><ul>
+<li>运行环境不同（小程序在微信运行，h5在浏览器运行）；</li>
+<li>开发成本不同（h5需要兼容不同的浏览器）；</li>
+<li>获取系统权限不同（系统级权限可以和小程序无缝衔接）；</li>
+<li>应用在生产环境的运行流畅度（h5需不断对项目优化来提高用户体验）</li>
+</ul>
+<h5 id="20-微信小程序如何进行双向绑定"><a href="#20-微信小程序如何进行双向绑定" class="headerlink" title="20.微信小程序如何进行双向绑定"></a>20.微信小程序如何进行双向绑定</h5><ul>
+<li><p>方法一：</p>
+<ul>
+<li><p>通过bindinput事件，然后通过setData设置input的值</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">&quot;&#123;&#123;value&#125;&#125;&quot;</span> <span class="attr">bindinput</span>=<span class="string">&quot;setvalue&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="title function_">setvalue</span>(<span class="params">event</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">this</span>.<span class="title function_">setData</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">      <span class="attr">value</span>: event.<span class="property">detail</span>.<span class="property">value</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>方法二：</p>
+<ul>
+<li><p>通过model:value属性来实现,需要2.9.3以上版本支持</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">model:value</span>=<span class="string">&quot;&#123;&#123;value&#125;&#125;&quot;</span>  /&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/05/26/%E5%88%9D%E8%AF%86vue/" rel="prev" title="vue面试题">
+      <i class="fa fa-chevron-left"></i> vue面试题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/05/26/webpack-%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="小程序-面试题">
+      小程序-面试题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%A1%B5%E9%9D%A2%E6%9C%89%E5%93%AA%E5%87%A0%E4%B8%AA%E6%96%87%E4%BB%B6%E7%BB%84%E6%88%90%EF%BC%8C%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">1.微信小程序页面有哪几个文件组成，各有什么作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%8C%E5%90%84%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">2.微信小程序配置文件有哪几种，各有什么作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-%E8%81%8A%E8%81%8A%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6%E6%9E%B6%E6%9E%84%E7%B3%BB%E7%BB%9F"><span class="nav-number">3.</span> <span class="nav-text">3. 聊聊微信小程序框架架构系统</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BA%8B%E4%BB%B6%E5%A6%82%E4%BD%95%E4%BC%A0%E5%80%BC%EF%BC%8C%E5%A6%82%E4%BD%95%E6%8E%A5%E6%94%B6%E4%BC%A0%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">4.微信小程序事件如何传值，如何接收传值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A6%82%E4%BD%95%E6%8E%A5%E6%94%B6url%E5%9C%B0%E5%9D%80%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%80%BC"><span class="nav-number">5.</span> <span class="nav-text">5.微信小程序如何接收url地址路由传值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84-wxss-%E5%92%8C-css-%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E2%BC%80%E6%A0%B7%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">6.</span> <span class="nav-text">6.微信小程序的 wxss 和 css 有哪些不⼀样的地方</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%9A%84js%E5%92%8C%E5%8E%9F%E7%94%9Fjs%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E4%B8%80%E6%A0%B7%E7%9A%84%E5%9C%B0%E6%96%B9"><span class="nav-number">7.</span> <span class="nav-text">7.微信小程序的js和原生js有哪些不一样的地方</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6%E8%B7%AF%E7%94%B1%E5%92%8C%E7%BC%96%E7%A8%8B%E8%B7%AF%E7%94%B1%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">8.</span> <span class="nav-text">8.微信小程序组件路由和编程路由的实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AC%AC%E4%B8%89%E6%96%B9%E7%BB%84%E4%BB%B6%E5%BA%93%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E4%BD%A0%E7%94%A8%E8%BF%87%E5%93%AA%E5%87%A0%E7%A7%8D"><span class="nav-number">9.</span> <span class="nav-text">9.微信小程序第三方组件库有哪些？你用过哪几种</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%84%E4%BB%B6%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1"><span class="nav-number">10.</span> <span class="nav-text">10.微信小程序组件间的通信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">11.</span> <span class="nav-text">11.微信小程序生命周期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%95%B0%E6%8D%AE%E7%9B%91%E5%90%AC%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E5%AE%9E%E7%8E%B0"><span class="nav-number">12.</span> <span class="nav-text">12.微信小程序数据监听器的作用及实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-%E8%81%8A%E8%81%8A%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E7%9A%84behavios"><span class="nav-number">13.</span> <span class="nav-text">13.聊聊微信小程序中的behavios</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%A6%82%E4%BD%95%E6%98%BE%E7%A4%BAhtml%E6%A0%87%E7%AD%BE%E5%86%85%E5%AE%B9"><span class="nav-number">14.</span> <span class="nav-text">14.微信小程序中如何显示html标签内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8E%88%E6%9D%83%E7%99%BB%E5%BD%95"><span class="nav-number">15.</span> <span class="nav-text">15.微信小程序中如何实现授权登录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#16-web-view%E7%BB%84%E4%BB%B6"><span class="nav-number">16.</span> <span class="nav-text">16.web-view组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#17-scroll-view%E7%BB%84%E4%BB%B6"><span class="nav-number">17.</span> <span class="nav-text">17.scroll-view组件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#18-%E6%AF%94%E8%BE%83bindtap%E5%92%8Ccatchtap"><span class="nav-number">18.</span> <span class="nav-text">18.比较bindtap和catchtap</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#19-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B8%8EH5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">19.</span> <span class="nav-text">19.微信小程序与H5的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#20-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A"><span class="nav-number">20.</span> <span class="nav-text">20.微信小程序如何进行双向绑定</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">亚丽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wuyali-6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wuyali-6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wyl2191854028@163.com" title="E-Mail → mailto:wyl2191854028@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">亚丽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

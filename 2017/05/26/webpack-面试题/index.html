@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1. 谈谈你对webpack的理解​    1、webpack是一个现代JavaScript应用程序的静态模块打包器 ​    2、当webpack处理应用程序时，会递归的构建一个依赖关系图；其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个包 ​    3、在webpack看来，前端的所有资源文件都会作为模块处理 ​    4、webpack提供了友好的模块化支持，以及资源的合并">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小程序-面试题">
+<meta property="og:url" content="http://example.com/2017/05/26/webpack-%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="亚丽的博客">
+<meta property="og:description" content="1. 谈谈你对webpack的理解​    1、webpack是一个现代JavaScript应用程序的静态模块打包器 ​    2、当webpack处理应用程序时，会递归的构建一个依赖关系图；其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个包 ​    3、在webpack看来，前端的所有资源文件都会作为模块处理 ​    4、webpack提供了友好的模块化支持，以及资源的合并">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-05-26T04:12:57.000Z">
+<meta property="article:modified_time" content="2022-04-06T07:51:12.119Z">
+<meta property="article:author" content="亚丽">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2017/05/26/webpack-%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>小程序-面试题 | 亚丽的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">亚丽的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2017/05/26/webpack-%E9%9D%A2%E8%AF%95%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="亚丽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="亚丽的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          小程序-面试题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-26 12:12:57" itemprop="dateCreated datePublished" datetime="2017-05-26T12:12:57+08:00">2017-05-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-04-06 15:51:12" itemprop="dateModified" datetime="2022-04-06T15:51:12+08:00">2022-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">面试题</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h5 id="1-谈谈你对webpack的理解"><a href="#1-谈谈你对webpack的理解" class="headerlink" title="1. 谈谈你对webpack的理解"></a>1. 谈谈你对webpack的理解</h5><p>​    1、webpack是一个现代JavaScript应用程序的静态模块打包器</p>
+<p>​    2、当webpack处理应用程序时，会递归的构建一个依赖关系图；其中包含应用程序需要的每个模块，然后将所有这些模块打包成一个或多个包</p>
+<p>​    3、在webpack看来，前端的所有资源文件都会作为模块处理</p>
+<p>​    4、webpack提供了友好的模块化支持，以及资源的合并、打包、压缩、混淆、处理js兼容问题、性能优化等强大的问题</p>
+<h5 id="2-webpack核心概念"><a href="#2-webpack核心概念" class="headerlink" title="2. webpack核心概念"></a>2. webpack核心概念</h5><p>​    1、入口（inter）：指示webpack应该使用哪个模块来作为构建其内部依赖图的开始</p>
+<p>​    2、出口（output）：指示webpack打包后的资源输出到哪里去以及如何命名</p>
+<p>​    3、loader：让webpack能够处理那些非JavaScript文件，因为webpack默认只能处理JS文件；loader能够将所有类型的文件转换为webpack能够处理的有效模块，然后就可以进行打包</p>
+<p>​    4、插件（plugins）：可以用于执行范围更广的任务；包括打包优化和压缩，一直到重新定义环境中的变量等</p>
+<p>​    5、模式（Mode）：可设置为development或production来启用相应模式下的webpack内置的优化</p>
+<h5 id="3-webpack-dev-server的作用"><a href="#3-webpack-dev-server的作用" class="headerlink" title="3. webpack-dev-server的作用"></a>3. webpack-dev-server的作用</h5><p>​    1、提供了一个基本的web serve，并具有live reloading(实时重新加载)功能；</p>
+<p>​    2、帮我们打包生成的bundle.js文件并没有存放到实际的物理磁盘上；而是直接托管到了电脑的内存当中，所以在项目的根目录中是找不到bundle.js这个文件的</p>
+<p>​    3、可以认为webpack-dev-serve把打包好的文件以一种虚拟的形式托管到了项目的根目录中</p>
+<h5 id="4-webpack如何打包样式资源"><a href="#4-webpack如何打包样式资源" class="headerlink" title="4.webpack如何打包样式资源"></a>4.webpack如何打包样式资源</h5><p>​    1、安装css-loader style-loader、less-loader、sass-loader node-sass</p>
+<p>​    2、在rules:[]中进行配置匹配到的文件以及使用到的loader</p>
+<h5 id="5-webpack如何打包html资源"><a href="#5-webpack如何打包html资源" class="headerlink" title="5.webpack如何打包html资源"></a>5.webpack如何打包html资源</h5><p>​    1、安装html-webpack-plugin并引入</p>
+<p>​    2、在plugins:[]中进行配置</p>
+<h5 id="6-webpack如何打包css中图片资源"><a href="#6-webpack如何打包css中图片资源" class="headerlink" title="6.webpack如何打包css中图片资源"></a>6.webpack如何打包css中图片资源</h5><p>​    1、安装url-loader file-loader</p>
+<p>​    2、在配置打包样式资源rules:[]中进行配置</p>
+<p>​    3、与打包样式资源不同的是使用loader配置使用的loader；使用options来配置输出目录路径等</p>
+<h5 id="7-webpack如何打包html中图片资源"><a href="#7-webpack如何打包html中图片资源" class="headerlink" title="7.webpack如何打包html中图片资源"></a>7.webpack如何打包html中图片资源</h5><p>​    1、安装 html-withimg-loader</p>
+<p>​    2、在rules:[]中进行配置</p>
+<h5 id="8-webpack如何提取CSS为单独文件"><a href="#8-webpack如何提取CSS为单独文件" class="headerlink" title="8.webpack如何提取CSS为单独文件"></a>8.webpack如何提取CSS为单独文件</h5><p>​    1、安装mini-css-extract-plugin并引入</p>
+<p>​    2、在rules:[]中进行配置</p>
+<p>​    3、在plugins中可以对输出的文件进行重命名</p>
+<h5 id="9-webpack对CSS兼容性处理"><a href="#9-webpack对CSS兼容性处理" class="headerlink" title="9.webpack对CSS兼容性处理"></a>9.webpack对CSS兼容性处理</h5><p>​    1、设置需要兼容处理的css样式</p>
+<p>​    2、安装postcss postcss-loader  postcss-preset-env</p>
+<p>​    3、在package.json中进行对开发环境以及生产环境下浏览器兼容版本的处理</p>
+<p>​    4、设置环境变量控制是生产环境还是开发环境；默认是生产环境</p>
+<p>​    5、进行postcss-loader的配置</p>
+<h5 id="10-webpack如何压缩css"><a href="#10-webpack如何压缩css" class="headerlink" title="10.webpack如何压缩css"></a>10.webpack如何压缩css</h5><p>​    1、安装optimize-css-assets-webpack-plugin并引入</p>
+<p>​    2、在plugins中进行配置</p>
+<h5 id="11-webpack如何压缩js"><a href="#11-webpack如何压缩js" class="headerlink" title="11.webpack如何压缩js"></a>11.webpack如何压缩js</h5><p>​    将mode改为production，生产环境下回自动压缩js</p>
+<h5 id="12-webpack如何压缩html"><a href="#12-webpack如何压缩html" class="headerlink" title="12.webpack如何压缩html"></a>12.webpack如何压缩html</h5><p>​    1、安装html-webpack-plugin并引入</p>
+<p>​    2、在plugins中进行配置</p>
+<h5 id="13-webpack如何压缩图片"><a href="#13-webpack如何压缩图片" class="headerlink" title="13.webpack如何压缩图片"></a>13.webpack如何压缩图片</h5><p>​    1、安装image-webpack-loader</p>
+<p>​    2、在rules:[]中进行配置</p>
+<p>​    3、要关闭es6模块采用commonjs</p>
+<h5 id="14-HMR（热替换）"><a href="#14-HMR（热替换）" class="headerlink" title="14.HMR（热替换）"></a>14.HMR（热替换）</h5><p>​    1、热替换可以让可以解决当有一个小的修改整个页面都需要刷新的问题，可以只刷新修改的部分</p>
+<p>​    2、首先在devServe中进行配置hot:true</p>
+<p>​    3、css的热替换需要使用style-loader</p>
+<p>​    4、在入口文件中加入index.html</p>
+<p>​    5、js的热替换，只要在入口文件中对加载的其他js文件进行设置即可</p>
+<h5 id="15-webpack-打包优化思路"><a href="#15-webpack-打包优化思路" class="headerlink" title="15.webpack 打包优化思路"></a>15.webpack 打包优化思路</h5><p>​    1、使用webpack-parallel-uglify-plugin，webpack默认使用UglifyJS去一个个压缩并输出，而webpack-parallel-uglify-plugin插件则会开启多个子进程，将多个文件压缩的工作分配给多个子进程去完成，但每个子进程还是通过UlifyJS去压缩代码</p>
+<p>​    2、使用CDN引入资源</p>
+<p>​    3、第三方UI组件按需引入</p>
+<p>​    4、路由懒加载</p>
+<p>​    5、图片懒加载</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/05/26/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" rel="prev" title="小程序-面试题">
+      <i class="fa fa-chevron-left"></i> 小程序-面试题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/05/26/ES6-%E9%9D%A2%E8%AF%95%E9%A2%98/" rel="next" title="ES6-面试题">
+      ES6-面试题 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9webpack%E7%9A%84%E7%90%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">1. 谈谈你对webpack的理解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-webpack%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">2. webpack核心概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-webpack-dev-server%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">3. webpack-dev-server的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-webpack%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85%E6%A0%B7%E5%BC%8F%E8%B5%84%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">4.webpack如何打包样式资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-webpack%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85html%E8%B5%84%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">5.webpack如何打包html资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-webpack%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85css%E4%B8%AD%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">6.webpack如何打包css中图片资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-webpack%E5%A6%82%E4%BD%95%E6%89%93%E5%8C%85html%E4%B8%AD%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">7.webpack如何打包html中图片资源</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-webpack%E5%A6%82%E4%BD%95%E6%8F%90%E5%8F%96CSS%E4%B8%BA%E5%8D%95%E7%8B%AC%E6%96%87%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">8.webpack如何提取CSS为单独文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-webpack%E5%AF%B9CSS%E5%85%BC%E5%AE%B9%E6%80%A7%E5%A4%84%E7%90%86"><span class="nav-number">9.</span> <span class="nav-text">9.webpack对CSS兼容性处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-webpack%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9css"><span class="nav-number">10.</span> <span class="nav-text">10.webpack如何压缩css</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-webpack%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9js"><span class="nav-number">11.</span> <span class="nav-text">11.webpack如何压缩js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-webpack%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9html"><span class="nav-number">12.</span> <span class="nav-text">12.webpack如何压缩html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-webpack%E5%A6%82%E4%BD%95%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87"><span class="nav-number">13.</span> <span class="nav-text">13.webpack如何压缩图片</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-HMR%EF%BC%88%E7%83%AD%E6%9B%BF%E6%8D%A2%EF%BC%89"><span class="nav-number">14.</span> <span class="nav-text">14.HMR（热替换）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-webpack-%E6%89%93%E5%8C%85%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF"><span class="nav-number">15.</span> <span class="nav-text">15.webpack 打包优化思路</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">亚丽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wuyali-6666" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wuyali-6666" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:wyl2191854028@163.com" title="E-Mail → mailto:wyl2191854028@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">亚丽</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
