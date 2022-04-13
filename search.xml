@@ -147,7 +147,7 @@
   </entry>
   <entry>
     <title>HTML标签</title>
-    <url>/2017/05/26/HTML%E6%A0%87%E7%AD%BE/</url>
+    <url>/2022/04/13/HTML%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h1 id="一、标签目标"><a href="#一、标签目标" class="headerlink" title="一、标签目标"></a>一、标签目标</h1><p>1、能够说出标签的书写规范</p>
 <p>2、能够写出HTML骨架标签</p>
 <p>3、能够写出超链接标签</p>
@@ -190,7 +190,9 @@
 <h1 id="四、语义标签"><a href="#四、语义标签" class="headerlink" title="四、语义标签"></a>四、语义标签</h1><h2 id="4-1标签语义"><a href="#4-1标签语义" class="headerlink" title="4.1标签语义"></a>4.1标签语义</h2><p>学习标签是有技巧的，重点是记住每个标签的语义。简单理解就是指标签的含义，即这个标签是用来干麻的.<br>根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰。</p>
 <h1 id="五、常用标签"><a href="#五、常用标签" class="headerlink" title="五、常用标签"></a>五、常用标签</h1><h2 id="5-1标题标签h1-h6"><a href="#5-1标题标签h1-h6" class="headerlink" title="5.1标题标签h1-h6"></a>5.1标题标签h1-h6</h2><p>为了使用网页更具有语义化，页面上经常使用标题标签</p>
 <p>标签语义：作为标题使用，并且依据重要性递增</p>
-<p>格式：</p><h1></h1><p></p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;h1&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
 <p>特点：</p>
 <ul>
 <li>加了标题的文字会变的加粗、字号也会依次变大</li>
@@ -198,7 +200,9 @@
 </ul>
 <h2 id="5-2段落和换行标签"><a href="#5-2段落和换行标签" class="headerlink" title="5.2段落和换行标签"></a>5.2段落和换行标签</h2><p><strong>p</strong>:在网页中，要把文字有条理第显示出来，就需要将这些文字分段显示，在HTML中</p><p></p>,将整个网页分为若干个段落<p></p>
 <p>标签语义：可以把HTML文档分割为若干个段落</p>
-<p>格式：</p><p></p><p></p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
 <p>特点：</p>
 <ul>
 <li>文本在一个段落中会根据浏览器窗口的大小自动进行换行</li>
@@ -206,7 +210,9 @@
 </ul>
 <p>br:在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后才自换行。如果希望,某段文本强制换行显示，就需要使用换行标签<br></p>
 <p>标签语义：强制换行</p>
-<p>格式：<br></p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;/br&gt;</span><br></pre></td></tr></table></figure>
+
 <p>特点：</p>
 <ul>
 <li>br是一个单标签</li>
@@ -244,14 +250,18 @@
 </tr>
 </tbody></table>
 <h2 id="5-4div和span标签"><a href="#5-4div和span标签" class="headerlink" title="5.4div和span标签"></a>5.4div和span标签</h2><p>他们就是一个盒子，用来装内容</p>
-<p>格式：<div></div>&gt;和<span></span>&gt;</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;&gt;和&lt;span&gt;&lt;/span&gt;&gt;</span><br></pre></td></tr></table></figure>
+
 <p>特点：</p>
 <ul>
 <li>div标签用来布局，一行只能放一个。大盒子</li>
 <li>div标签用来布局，一行可以放多个。小盒子</li>
 </ul>
 <h2 id="5-5图像标签"><a href="#5-5图像标签" class="headerlink" title="5.5图像标签"></a>5.5图像标签</h2><p>在HTML中，<img>标签用来定义HTML页面中的图像</p>
-<p>格式：<img src="/2017/05/26/HTML%E6%A0%87%E7%AD%BE/Users/tudou/Desktop/学习笔记/2HTML/图像的URL地址"></p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img src=&quot;图像的URL地址&quot;&gt;</span><br></pre></td></tr></table></figure>
+
 <p>特点：</p>
 <ul>
 <li>src:是图像标签的必须属性。用于指定图像文件的路径和文件名</li>
@@ -307,7 +317,7 @@
 <li>内部链接：<a href="gongsijianjie.html" target="_blank">公司简介</a>网站内部页面之间的相互链接</li>
 <li>空链接：<a href="#">公司地址</a></li>
 <li>下载链接： <a href="img.zip">下载文件</a>下载链接: 地址链接的是 文件 .exe 或者是 zip 等压缩包形式</li>
-<li>网页元素链接：<a href="http://www.baidu.com"><img src="/2017/05/26/HTML%E6%A0%87%E7%AD%BE/Users/tudou/Desktop/学习笔记/2HTML/img.jpg"></a></li>
+<li>网页元素链接：<a href="http://www.baidu.com"><img src="/2022/04/13/HTML%E6%A0%87%E7%AD%BE/Users/tudou/Desktop/学习笔记/2HTML/img.jpg"></a></li>
 </ul>
 </li>
 </ul>

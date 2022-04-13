@@ -155,6 +155,347 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/13/HTML%E6%A0%87%E7%AD%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="亚丽">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="亚丽的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/04/13/HTML%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">HTML标签</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-04-13 12:12:57 / 修改时间：15:30:04" itemprop="dateCreated datePublished" datetime="2022-04-13T12:12:57+08:00">2022-04-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一、标签目标"><a href="#一、标签目标" class="headerlink" title="一、标签目标"></a>一、标签目标</h1><p>1、能够说出标签的书写规范</p>
+<p>2、能够写出HTML骨架标签</p>
+<p>3、能够写出超链接标签</p>
+<p>4、能够写出图片标签并说出alt和title的区别</p>
+<p>5、能够说出相对路径的三种形式</p>
+<h1 id="二、标签导读"><a href="#二、标签导读" class="headerlink" title="二、标签导读"></a>二、标签导读</h1><h2 id="1、HTML语法规范"><a href="#1、HTML语法规范" class="headerlink" title="1、HTML语法规范"></a>1、HTML语法规范</h2><ul>
+<li>HTML标签是由尖括号包围的关键饲，例如<html>,</html></li>
+<li>HTML标签通常是成对出现的，例始<html>和<html>,我们称为双标签，标签对中的第一个标签是开始标签，第二个标签是结束标签。</html></html></li>
+<li>有些特殊的标签必须是单个标签（极少情况），例如&lt;b「/&gt;，我们称为单标签。</li>
+</ul>
+<h3 id="1-2标签关系"><a href="#1-2标签关系" class="headerlink" title="1.2标签关系"></a>1.2标签关系</h3><p>双标签的关系可以分为两类：包含关系和并列关系</p>
+<p>包含关系：head和title</p>
+<p>并列关系：head和body</p>
+<h2 id="2、HTML基础结构标签"><a href="#2、HTML基础结构标签" class="headerlink" title="2、HTML基础结构标签"></a>2、HTML基础结构标签</h2><h3 id="2-1第一个HTML网页"><a href="#2-1第一个HTML网页" class="headerlink" title="2.1第一个HTML网页"></a>2.1第一个HTML网页</h3><p>每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这些基本标签上书泻。<br>HTML页面也称为HTML文档.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3、开发工具</p>
+<p>4、HTML常用标签</p>
+<p>5、HTML中注释和特殊字符</p>
+<h1 id="三、Doctype、lang、字符集"><a href="#三、Doctype、lang、字符集" class="headerlink" title="三、Doctype、lang、字符集"></a>三、Doctype、lang、字符集</h1><h2 id="1、Doctype文档类型"><a href="#1、Doctype文档类型" class="headerlink" title="1、Doctype文档类型"></a>1、Doctype文档类型</h2><p>作用：告诉浏览器使用哪种HTML版本来显示网页</p>
+<p>格式：&lt;! DOCTYPE html&gt;</p>
+<p>解析：当前页面采用的是html5版本来显示网页</p>
+<p>注意：</p>
+<ul>
+<li><!DOCTYPE>声明位于文档中的最前面的位置，处于<html>标签之前</html></li>
+</ul>
+<p>  &lt;/!doctype&gt;</p>
+<ul>
+<li>不是一个HTML标签，它是一个文档类型声明标签</li>
+</ul>
+<h2 id="2、Lang语言种类"><a href="#2、Lang语言种类" class="headerlink" title="2、Lang语言种类"></a>2、Lang语言种类</h2><p>作用：用于定义当前文档显示的语言</p>
+<ul>
+<li>en：英语</li>
+<li>zh-Ch：中文</li>
+</ul>
+<h2 id="3、字符集"><a href="#3、字符集" class="headerlink" title="3、字符集"></a>3、字符集</h2><p>作用：字符集(Character set)是多个字符的集合。以便计算机能够识别和存储各种文字。<br>在<head>标签内，可以通过<meta>标签的charset属性来规定HTML文档应该使用那种字符编码，</head></p>
+<p>格式：<meta charset="UTF-8"></p>
+<p>charset常用的值有：GB2312、B1G5、G$K和UTF-8,其中UTF-8也被称为万国码，基本包含了全世界所。有国家需要用到的字符</p>
+<p>注意：上面语法是必须要写的代码，否则可能好引起乱码的情况。一般情况下，统使用“UT「-8”编码，              尽量。统一写成标准的”UTF-8”,不要写成”utf8”或”UTF8”。</p>
+<h1 id="四、语义标签"><a href="#四、语义标签" class="headerlink" title="四、语义标签"></a>四、语义标签</h1><h2 id="4-1标签语义"><a href="#4-1标签语义" class="headerlink" title="4.1标签语义"></a>4.1标签语义</h2><p>学习标签是有技巧的，重点是记住每个标签的语义。简单理解就是指标签的含义，即这个标签是用来干麻的.<br>根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰。</p>
+<h1 id="五、常用标签"><a href="#五、常用标签" class="headerlink" title="五、常用标签"></a>五、常用标签</h1><h2 id="5-1标题标签h1-h6"><a href="#5-1标题标签h1-h6" class="headerlink" title="5.1标题标签h1-h6"></a>5.1标题标签h1-h6</h2><p>为了使用网页更具有语义化，页面上经常使用标题标签</p>
+<p>标签语义：作为标题使用，并且依据重要性递增</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>加了标题的文字会变的加粗、字号也会依次变大</li>
+<li>每个标题独占一行</li>
+</ul>
+<h2 id="5-2段落和换行标签"><a href="#5-2段落和换行标签" class="headerlink" title="5.2段落和换行标签"></a>5.2段落和换行标签</h2><p><strong>p</strong>:在网页中，要把文字有条理第显示出来，就需要将这些文字分段显示，在HTML中</p><p></p>,将整个网页分为若干个段落<p></p>
+<p>标签语义：可以把HTML文档分割为若干个段落</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>文本在一个段落中会根据浏览器窗口的大小自动进行换行</li>
+<li>段落和段落之间保留空隙</li>
+</ul>
+<p>br:在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后才自换行。如果希望,某段文本强制换行显示，就需要使用换行标签<br></p>
+<p>标签语义：强制换行</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;/br&gt;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>br是一个单标签</li>
+<li>br标签只是一个简单地开始新的一行，跟段落不一样，段落之间会插入一些垂直的间距</li>
+</ul>
+<h2 id="5-3文本格式化标签"><a href="#5-3文本格式化标签" class="headerlink" title="5.3文本格式化标签"></a>5.3文本格式化标签</h2><p>在网页中，有时会将文字设置为粗体、斜体、下划线、删除线等</p>
+<p>标签语义：突出重要性，比普通文字更重要</p>
+<table>
+<thead>
+<tr>
+<th>语义</th>
+<th>标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加粗</td>
+<td><strong>和<b></b></strong></td>
+<td>推荐使用strong</td>
+</tr>
+<tr>
+<td>斜线</td>
+<td>&lt;em&gt;和<i></i></td>
+<td>推荐使用em</td>
+</tr>
+<tr>
+<td>删除线</td>
+<td><del>和<s></s></del></td>
+<td>推荐使用del</td>
+</tr>
+<tr>
+<td>下划线</td>
+<td><ins>和<u></u></ins></td>
+<td>推荐使用ins</td>
+</tr>
+</tbody></table>
+<h2 id="5-4div和span标签"><a href="#5-4div和span标签" class="headerlink" title="5.4div和span标签"></a>5.4div和span标签</h2><p>他们就是一个盒子，用来装内容</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;/div&gt;&gt;和&lt;span&gt;&lt;/span&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>div标签用来布局，一行只能放一个。大盒子</li>
+<li>div标签用来布局，一行可以放多个。小盒子</li>
+</ul>
+<h2 id="5-5图像标签"><a href="#5-5图像标签" class="headerlink" title="5.5图像标签"></a>5.5图像标签</h2><p>在HTML中，<img>标签用来定义HTML页面中的图像</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img src=&quot;图像的URL地址&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>src:是图像标签的必须属性。用于指定图像文件的路径和文件名</li>
+<li>alt 替换文本 图像显示不出来的时候用文字替换</li>
+<li>title 提示文本 鼠标放到图像上,提示的文字</li>
+<li>width 给图像设定宽度</li>
+<li>height 给图像设定高度</li>
+<li>border 给图像设定边框</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>①图像标签可以拥有多个属性，必须写在标签名的后面。</li>
+<li>②属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</li>
+<li>③属性采取键值对的格式，即key=“value”的格式，属性=”属性值”。</li>
+</ul>
+<h2 id="5-6路径"><a href="#5-6路径" class="headerlink" title="5.6路径"></a>5.6路径</h2><p>目录文件夹和根目录：<br>        实际工作中，我们的文件不能随放，否则用起来很难快速的找到他们，因此我们需要一个文件夹        来管理        他们<br><strong>目文件夹</strong>：就是普通文件夹，里面只不过存放了我们做页面所斋要的相关亲材，比如htl文件、图片等。<br><strong>根目录</strong>：打开目录文件夹的第一层就是根目录</p>
+<h3 id="5-6-1相对路径"><a href="#5-6-1相对路径" class="headerlink" title="5.6.1相对路径"></a>5.6.1相对路径</h3><p>以引用文件所在位置为参考基础，而建立出的目录，简单来说：图片相对于HTML页面的位置</p>
+<table>
+<thead>
+<tr>
+<th>相对路径分类</th>
+<th>符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>同一级路径</td>
+<td></td>
+<td>图像文件位于HTML文件同一级</td>
+</tr>
+<tr>
+<td>下一级路径</td>
+<td>/</td>
+<td>图像文件位于HTML文件下一级</td>
+</tr>
+<tr>
+<td>上一级路径</td>
+<td>../</td>
+<td>图像文件位于HTML文件上一级</td>
+</tr>
+</tbody></table>
+<h3 id="5-6-2绝对路径"><a href="#5-6-2绝对路径" class="headerlink" title="5.6.2绝对路径"></a>5.6.2绝对路径</h3><p>目录下的绝对位置，直接到达目标位置</p>
+<h2 id="5-7超链接标签"><a href="#5-7超链接标签" class="headerlink" title="5.7超链接标签"></a>5.7超链接标签</h2><p>在HTML标签中，<a>标签用于定义超链接，作用是从一个页面链接到另外一个页面</a></p>
+<ul>
+<li>链接的语法格式<ul>
+<li><a href="跳转目标" target="目标窗口的弹出方式">文本或图像</a></li>
+<li>href:泳衣指定链接目标的url地址</li>
+<li>target用于指定链接页面的打开方式。_self默认当前、_blank新窗口打开</li>
+</ul>
+</li>
+<li>链接的分类<ul>
+<li>外部链接：<a href="http://www.qq.com" target="_blank"> 腾讯</a></li>
+<li>内部链接：<a href="gongsijianjie.html" target="_blank">公司简介</a>网站内部页面之间的相互链接</li>
+<li>空链接：<a href="#">公司地址</a></li>
+<li>下载链接： <a href="img.zip">下载文件</a>下载链接: 地址链接的是 文件 .exe 或者是 zip 等压缩包形式</li>
+<li>网页元素链接：<a target="_blank" rel="noopener" href="http://www.baidu.com"><img src="/2022/04/13/HTML%E6%A0%87%E7%AD%BE/Users/tudou/Desktop/学习笔记/2HTML/img.jpg"></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="5-8锚点链接"><a href="#5-8锚点链接" class="headerlink" title="5.8锚点链接"></a>5.8锚点链接</h2><p>点击链接，可以快速定位到页面的某个位置</p>
+<ul>
+<li>在链接文本的href属性中，设置属性为#名字的形式，如<a href="#tow">第二集&lt;&gt;</a></li>
+<li>找到目标位置标签，里面添加一个id属性= 刚才的名字，如<h3 id="tow">第2集介绍</h3></li>
+</ul>
+<h2 id="5-9表格标签"><a href="#5-9表格标签" class="headerlink" title="5.9表格标签"></a>5.9表格标签</h2><p>表格主要用于显示、展示数据，因为它可以让数据显示的非常的规整，可读性非常好。特别是后台展示数据<br>的时候，能够熟练运用表格就湿得很重要。一个清爽简约的表格能够把察杂的数掘表现得很有条理，</p>
+<ul>
+<li><p>表格的基本语法</p>
+<p>1.<table></table>是用于定义表格的标签。<br>2.<tr></tr>标签用于定义表格中的行，必须嵌套在<table></table>标签中。<br>3.<td></td>用于定义表格中的单元格，必须嵌在<tr>标签中。<br>4.字母td指表格数据(table data),即数据弹元格的内容。</tr></p>
+</li>
+<li><p>表头单元格标签th</p>
+<p>1.位于表格第一行或第一列，单元格中的内容加粗居中</p>
+</li>
+<li><p>align:left、center、right对齐方式</p>
+</li>
+<li><p>border:表格的边框，1</p>
+</li>
+<li><p>cellpadding单元格沿与其内容之间的空白，默认1像素</p>
+</li>
+<li><p>cellspacing:单元格之间的空白，默认2像素</p>
+</li>
+<li><p>width:表格的宽度</p>
+</li>
+<li><p>表格结构标签：</p>
+<ul>
+<li>thead:表格头部区域</li>
+<li>tbody:表格主体区域</li>
+<li>tfoot:表格底部区域</li>
+</ul>
+</li>
+<li><p>合并单元格方式</p>
+<ul>
+<li>跨行合并：rowspan=’’合并单元格的个数’’</li>
+<li>跨行合并：colspan=’’合并单元格的个数’’</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-10列表标签"><a href="#5-10列表标签" class="headerlink" title="5.10列表标签"></a>5.10列表标签</h2><p>列表最大的特点就是整齐、整洁、有序、它作为布局更加自由方便</p>
+<p>列表可以分类三大类：无序列表、有序列表、自定义列表</p>
+<h3 id="5-10-1无序列表"><a href="#5-10-1无序列表" class="headerlink" title="5.10.1无序列表"></a>5.10.1无序列表</h3><p>一般会以项目符号呈现列表项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">       &lt;li&gt;榴莲&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;臭豆腐&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;鲱鱼罐头&lt;/li&gt;</span><br><span class="line">   &lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>无序列表的各个列表项之间没有顺序级别之分，是并列的</li>
+<li>ul中只能嵌套li标签</li>
+<li>li与li之间相当于一个容器，可以容纳所有元素</li>
+<li>无序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置</li>
+</ul>
+<h3 id="5-10-2有序列表"><a href="#5-10-2有序列表" class="headerlink" title="5.10.2有序列表"></a>5.10.2有序列表</h3><p>有序列表即为有排列顺序的列表，其名个列表项会按照定的顺序排列定义<br>在HTML标签中，<ol>标签用于定义有序列表，列表排序以数字来显示，并目使用<li>标签来定义列表项。</li></ol></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">     &lt;li&gt;刘德华 10000&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;刘若英 1000&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;pink老师 1&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>1.<ol><ol>中只能嵌套<i>&lt;n及，直接在<o><o>标签中输入其他标签或者文字的做法是不被允许的。</o></o></i></ol></ol></li>
+<li>2.<i>与&lt;川i&gt;之间相当于一个容器，可以容纳所有元素。</i></li>
+<li>3.有序列表会带有自己样式属性，但在实际使用时，我们会使用CSS来设置。</li>
+</ul>
+<h3 id="5-10-3自定义列表"><a href="#5-10-3自定义列表" class="headerlink" title="5.10.3自定义列表"></a>5.10.3自定义列表</h3><p>自定义列表的列表项前没有任何项目符号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">        &lt;dt&gt;关注我们&lt;/dt&gt;</span><br><span class="line">        &lt;dd&gt;新浪微博&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;官方微信&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;联系我们&lt;/dd&gt;</span><br><span class="line">        &lt;dt&gt;关注我们&lt;/dt&gt;</span><br><span class="line">        &lt;dd&gt;新浪微博&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;官方微信&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;联系我们&lt;/dd&gt;</span><br><span class="line">    &lt;/dl&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-11表单标签"><a href="#5-11表单标签" class="headerlink" title="5.11表单标签"></a>5.11表单标签</h2><p>使用表单的目的是为了收集用户信息</p>
+<p>如：<a target="_blank" rel="noopener" href="https://reg.jiayuan.com/">https://reg.jiayuan.com/</a></p>
+<p> 表单组成：表单域、表单控件、提示信息等构成</p>
+<h3 id="5-11-1表单域"><a href="#5-11-1表单域" class="headerlink" title="5.11.1表单域"></a>5.11.1表单域</h3><p>表单域是一个包含表单元素的区域</p>
+<p>在HTML标签中，<from>标签用于定义域，以实现用户信息的收集和传递。from会把范围内的表单元素信息提交给服务器</from></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;from action=&#x27;url地址&#x27; method=&#x27;提交方式&#x27; name=&#x27;表单域名称&#x27;&gt;</span><br><span class="line">	各种表单元素控件</span><br><span class="line">&lt;/from&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>action: 属性值(url地址),用于指定接收并处理表单数据的服务器程序的url地址</li>
+<li>method:属性值(get\post)，用于设置表单数据的提交方式，其取值为get或post</li>
+<li>name:属性值(名称)，用于指定表单的名称，以区分同一个页面中的多个表单域</li>
+</ul>
+<h3 id="5-11-2表单控件"><a href="#5-11-2表单控件" class="headerlink" title="5.11.2表单控件"></a>5.11.2表单控件</h3><h4 id="5-11-2-1input表单元素"><a href="#5-11-2-1input表单元素" class="headerlink" title="5.11.2.1input表单元素"></a>5.11.2.1input表单元素</h4><p><input>:标签用于收集用户信息，在input标签中，包含type属性，根据不同的type属性值，输入字段拥有多种形式(如：文本字段、复选框、掩码后的文本控件、单选按钮、按钮)</p>
+<p>type可用属性值为：buttom(按钮)、checkbox(复选框)、file(浏览，文件上传)、hidden（隐藏）、image(图片)、password(密码字段，字符掩码)、radio(单选框)、reset(重置按钮)、submit(提交按钮)、text(单行输入字段，默认宽度20个字符)</p>
+<ul>
+<li>name=(用户自定义)，定义input元素的名称</li>
+<li>value=(用户自定义)，规定input元素的值</li>
+<li>checked=（checked）,规定input元素首次加载时应当被选中</li>
+<li>maxlength=（整整数），规定输入字段中的字符的最大长度</li>
+</ul>
+<h4 id="5-11-2-1lable表单元素"><a href="#5-11-2-1lable表单元素" class="headerlink" title="5.11.2.1lable表单元素"></a>5.11.2.1lable表单元素</h4><p><a href="label:">label:</a>标签为input:元亲定义标注（标签），<br><abel>标签用于绑定一个表单元察当点击<a href="label:">label:</a>标签内的文本时，刘览器就会自动将焦点（光标转到成者<br>选择对应的表单元素上用来增加用户体验</abel></p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;lable for=&quot;nan&quot;&gt; 男：&lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;nan&quot;&gt;</span><br><span class="line">&lt;lable for=&quot;nv&quot;&gt; 女：&lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;nv&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意：lable标签的for属性应当与相关元素的id属性相同</p>
+<h4 id="5-11-2-1select下拉菜单表单元素"><a href="#5-11-2-1select下拉菜单表单元素" class="headerlink" title="5.11.2.1select下拉菜单表单元素"></a>5.11.2.1select下拉菜单表单元素</h4><p>使用场景，在页面中，如果有多个选项让用户选择，并且要节约空间是，使用select下拉标签控件定义下拉列表</p>
+<p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">        籍贯: </span><br><span class="line">        &lt;select&gt;</span><br><span class="line">            &lt;option&gt;山东&lt;/option&gt;</span><br><span class="line">            &lt;option&gt;北京&lt;/option&gt;</span><br><span class="line">            &lt;option&gt;天津&lt;/option&gt;</span><br><span class="line">            &lt;option selected=&quot;selected&quot;&gt;火星&lt;/option&gt;</span><br><span class="line">        &lt;/select&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>select中至少包含一对option</li>
+<li>在option中定义delected=‘selected’时，当前项即默认选中项</li>
+</ul>
+<h4 id="5-11-2-1textarea文本域标签"><a href="#5-11-2-1textarea文本域标签" class="headerlink" title="5.11.2.1textarea文本域标签"></a>5.11.2.1textarea文本域标签</h4><p>格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">        今日反馈:</span><br><span class="line">        &lt;textarea cols=&quot;50&quot; rows=&quot;5&quot;&gt;pink老师,我知道这个反馈留言是textarea来做的  			&lt;/textarea&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li>通过textarea标签可以轻松创建多行文本输入框</li>
+<li>cols=’每行中的字符数’，rows=’显示的行数’</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/06/node%E5%9F%BA%E7%A1%801/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1081,343 +1422,6 @@
 <p>​    3、call的参数时直接放进去的，第二个第三个第n个参数之间都是用逗号进行分隔的；apply的所有参数都必须放在一个数组里</p>
 <p>​    4、bind和call的参数是一样的，只有返回函数不一样；</p>
 <p>​    5、bind方法会返回执行上下文被改变的函数而不会立即执行，而前两者是直接执行该函数</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2017/05/26/HTML%E6%A0%87%E7%AD%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="亚丽">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="亚丽的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/05/26/HTML%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">HTML标签</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-05-26 12:12:57" itemprop="dateCreated datePublished" datetime="2017-05-26T12:12:57+08:00">2017-05-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-04-13 15:23:01" itemprop="dateModified" datetime="2022-04-13T15:23:01+08:00">2022-04-13</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一、标签目标"><a href="#一、标签目标" class="headerlink" title="一、标签目标"></a>一、标签目标</h1><p>1、能够说出标签的书写规范</p>
-<p>2、能够写出HTML骨架标签</p>
-<p>3、能够写出超链接标签</p>
-<p>4、能够写出图片标签并说出alt和title的区别</p>
-<p>5、能够说出相对路径的三种形式</p>
-<h1 id="二、标签导读"><a href="#二、标签导读" class="headerlink" title="二、标签导读"></a>二、标签导读</h1><h2 id="1、HTML语法规范"><a href="#1、HTML语法规范" class="headerlink" title="1、HTML语法规范"></a>1、HTML语法规范</h2><ul>
-<li>HTML标签是由尖括号包围的关键饲，例如<html>,</html></li>
-<li>HTML标签通常是成对出现的，例始<html>和<html>,我们称为双标签，标签对中的第一个标签是开始标签，第二个标签是结束标签。</html></html></li>
-<li>有些特殊的标签必须是单个标签（极少情况），例如&lt;b「/&gt;，我们称为单标签。</li>
-</ul>
-<h3 id="1-2标签关系"><a href="#1-2标签关系" class="headerlink" title="1.2标签关系"></a>1.2标签关系</h3><p>双标签的关系可以分为两类：包含关系和并列关系</p>
-<p>包含关系：head和title</p>
-<p>并列关系：head和body</p>
-<h2 id="2、HTML基础结构标签"><a href="#2、HTML基础结构标签" class="headerlink" title="2、HTML基础结构标签"></a>2、HTML基础结构标签</h2><h3 id="2-1第一个HTML网页"><a href="#2-1第一个HTML网页" class="headerlink" title="2.1第一个HTML网页"></a>2.1第一个HTML网页</h3><p>每个网页都会有一个基本的结构标签（也称为骨架标签），页面内容也是在这些基本标签上书泻。<br>HTML页面也称为HTML文档.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-
-<p>3、开发工具</p>
-<p>4、HTML常用标签</p>
-<p>5、HTML中注释和特殊字符</p>
-<h1 id="三、Doctype、lang、字符集"><a href="#三、Doctype、lang、字符集" class="headerlink" title="三、Doctype、lang、字符集"></a>三、Doctype、lang、字符集</h1><h2 id="1、Doctype文档类型"><a href="#1、Doctype文档类型" class="headerlink" title="1、Doctype文档类型"></a>1、Doctype文档类型</h2><p>作用：告诉浏览器使用哪种HTML版本来显示网页</p>
-<p>格式：&lt;! DOCTYPE html&gt;</p>
-<p>解析：当前页面采用的是html5版本来显示网页</p>
-<p>注意：</p>
-<ul>
-<li><!DOCTYPE>声明位于文档中的最前面的位置，处于<html>标签之前</html></li>
-</ul>
-<p>  &lt;/!doctype&gt;</p>
-<ul>
-<li>不是一个HTML标签，它是一个文档类型声明标签</li>
-</ul>
-<h2 id="2、Lang语言种类"><a href="#2、Lang语言种类" class="headerlink" title="2、Lang语言种类"></a>2、Lang语言种类</h2><p>作用：用于定义当前文档显示的语言</p>
-<ul>
-<li>en：英语</li>
-<li>zh-Ch：中文</li>
-</ul>
-<h2 id="3、字符集"><a href="#3、字符集" class="headerlink" title="3、字符集"></a>3、字符集</h2><p>作用：字符集(Character set)是多个字符的集合。以便计算机能够识别和存储各种文字。<br>在<head>标签内，可以通过<meta>标签的charset属性来规定HTML文档应该使用那种字符编码，</head></p>
-<p>格式：<meta charset="UTF-8"></p>
-<p>charset常用的值有：GB2312、B1G5、G$K和UTF-8,其中UTF-8也被称为万国码，基本包含了全世界所。有国家需要用到的字符</p>
-<p>注意：上面语法是必须要写的代码，否则可能好引起乱码的情况。一般情况下，统使用“UT「-8”编码，              尽量。统一写成标准的”UTF-8”,不要写成”utf8”或”UTF8”。</p>
-<h1 id="四、语义标签"><a href="#四、语义标签" class="headerlink" title="四、语义标签"></a>四、语义标签</h1><h2 id="4-1标签语义"><a href="#4-1标签语义" class="headerlink" title="4.1标签语义"></a>4.1标签语义</h2><p>学习标签是有技巧的，重点是记住每个标签的语义。简单理解就是指标签的含义，即这个标签是用来干麻的.<br>根据标签的语义，在合适的地方给一个最为合理的标签，可以让页面结构更清晰。</p>
-<h1 id="五、常用标签"><a href="#五、常用标签" class="headerlink" title="五、常用标签"></a>五、常用标签</h1><h2 id="5-1标题标签h1-h6"><a href="#5-1标题标签h1-h6" class="headerlink" title="5.1标题标签h1-h6"></a>5.1标题标签h1-h6</h2><p>为了使用网页更具有语义化，页面上经常使用标题标签</p>
-<p>标签语义：作为标题使用，并且依据重要性递增</p>
-<p>格式：</p><h1></h1><p></p>
-<p>特点：</p>
-<ul>
-<li>加了标题的文字会变的加粗、字号也会依次变大</li>
-<li>每个标题独占一行</li>
-</ul>
-<h2 id="5-2段落和换行标签"><a href="#5-2段落和换行标签" class="headerlink" title="5.2段落和换行标签"></a>5.2段落和换行标签</h2><p><strong>p</strong>:在网页中，要把文字有条理第显示出来，就需要将这些文字分段显示，在HTML中</p><p></p>,将整个网页分为若干个段落<p></p>
-<p>标签语义：可以把HTML文档分割为若干个段落</p>
-<p>格式：</p><p></p><p></p>
-<p>特点：</p>
-<ul>
-<li>文本在一个段落中会根据浏览器窗口的大小自动进行换行</li>
-<li>段落和段落之间保留空隙</li>
-</ul>
-<p>br:在HTML中，一个段落中的文字会从左到右依次排列，直到浏览器窗口的右端，然后才自换行。如果希望,某段文本强制换行显示，就需要使用换行标签<br></p>
-<p>标签语义：强制换行</p>
-<p>格式：<br></p>
-<p>特点：</p>
-<ul>
-<li>br是一个单标签</li>
-<li>br标签只是一个简单地开始新的一行，跟段落不一样，段落之间会插入一些垂直的间距</li>
-</ul>
-<h2 id="5-3文本格式化标签"><a href="#5-3文本格式化标签" class="headerlink" title="5.3文本格式化标签"></a>5.3文本格式化标签</h2><p>在网页中，有时会将文字设置为粗体、斜体、下划线、删除线等</p>
-<p>标签语义：突出重要性，比普通文字更重要</p>
-<table>
-<thead>
-<tr>
-<th>语义</th>
-<th>标签</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>加粗</td>
-<td><strong>和<b></b></strong></td>
-<td>推荐使用strong</td>
-</tr>
-<tr>
-<td>斜线</td>
-<td>&lt;em&gt;和<i></i></td>
-<td>推荐使用em</td>
-</tr>
-<tr>
-<td>删除线</td>
-<td><del>和<s></s></del></td>
-<td>推荐使用del</td>
-</tr>
-<tr>
-<td>下划线</td>
-<td><ins>和<u></u></ins></td>
-<td>推荐使用ins</td>
-</tr>
-</tbody></table>
-<h2 id="5-4div和span标签"><a href="#5-4div和span标签" class="headerlink" title="5.4div和span标签"></a>5.4div和span标签</h2><p>他们就是一个盒子，用来装内容</p>
-<p>格式：<div></div>&gt;和<span></span>&gt;</p>
-<p>特点：</p>
-<ul>
-<li>div标签用来布局，一行只能放一个。大盒子</li>
-<li>div标签用来布局，一行可以放多个。小盒子</li>
-</ul>
-<h2 id="5-5图像标签"><a href="#5-5图像标签" class="headerlink" title="5.5图像标签"></a>5.5图像标签</h2><p>在HTML中，<img>标签用来定义HTML页面中的图像</p>
-<p>格式：<img src="/2017/05/26/HTML%E6%A0%87%E7%AD%BE/Users/tudou/Desktop/学习笔记/2HTML/图像的URL地址"></p>
-<p>特点：</p>
-<ul>
-<li>src:是图像标签的必须属性。用于指定图像文件的路径和文件名</li>
-<li>alt 替换文本 图像显示不出来的时候用文字替换</li>
-<li>title 提示文本 鼠标放到图像上,提示的文字</li>
-<li>width 给图像设定宽度</li>
-<li>height 给图像设定高度</li>
-<li>border 给图像设定边框</li>
-</ul>
-<p>注意：</p>
-<ul>
-<li>①图像标签可以拥有多个属性，必须写在标签名的后面。</li>
-<li>②属性之间不分先后顺序，标签名与属性、属性与属性之间均以空格分开。</li>
-<li>③属性采取键值对的格式，即key=“value”的格式，属性=”属性值”。</li>
-</ul>
-<h2 id="5-6路径"><a href="#5-6路径" class="headerlink" title="5.6路径"></a>5.6路径</h2><p>目录文件夹和根目录：<br>        实际工作中，我们的文件不能随放，否则用起来很难快速的找到他们，因此我们需要一个文件夹        来管理        他们<br><strong>目文件夹</strong>：就是普通文件夹，里面只不过存放了我们做页面所斋要的相关亲材，比如htl文件、图片等。<br><strong>根目录</strong>：打开目录文件夹的第一层就是根目录</p>
-<h3 id="5-6-1相对路径"><a href="#5-6-1相对路径" class="headerlink" title="5.6.1相对路径"></a>5.6.1相对路径</h3><p>以引用文件所在位置为参考基础，而建立出的目录，简单来说：图片相对于HTML页面的位置</p>
-<table>
-<thead>
-<tr>
-<th>相对路径分类</th>
-<th>符号</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>同一级路径</td>
-<td></td>
-<td>图像文件位于HTML文件同一级</td>
-</tr>
-<tr>
-<td>下一级路径</td>
-<td>/</td>
-<td>图像文件位于HTML文件下一级</td>
-</tr>
-<tr>
-<td>上一级路径</td>
-<td>../</td>
-<td>图像文件位于HTML文件上一级</td>
-</tr>
-</tbody></table>
-<h3 id="5-6-2绝对路径"><a href="#5-6-2绝对路径" class="headerlink" title="5.6.2绝对路径"></a>5.6.2绝对路径</h3><p>目录下的绝对位置，直接到达目标位置</p>
-<h2 id="5-7超链接标签"><a href="#5-7超链接标签" class="headerlink" title="5.7超链接标签"></a>5.7超链接标签</h2><p>在HTML标签中，<a>标签用于定义超链接，作用是从一个页面链接到另外一个页面</a></p>
-<ul>
-<li>链接的语法格式<ul>
-<li><a href="跳转目标" target="目标窗口的弹出方式">文本或图像</a></li>
-<li>href:泳衣指定链接目标的url地址</li>
-<li>target用于指定链接页面的打开方式。_self默认当前、_blank新窗口打开</li>
-</ul>
-</li>
-<li>链接的分类<ul>
-<li>外部链接：<a href="http://www.qq.com" target="_blank"> 腾讯</a></li>
-<li>内部链接：<a href="gongsijianjie.html" target="_blank">公司简介</a>网站内部页面之间的相互链接</li>
-<li>空链接：<a href="#">公司地址</a></li>
-<li>下载链接： <a href="img.zip">下载文件</a>下载链接: 地址链接的是 文件 .exe 或者是 zip 等压缩包形式</li>
-<li>网页元素链接：<a target="_blank" rel="noopener" href="http://www.baidu.com"><img src="/2017/05/26/HTML%E6%A0%87%E7%AD%BE/Users/tudou/Desktop/学习笔记/2HTML/img.jpg"></a></li>
-</ul>
-</li>
-</ul>
-<h2 id="5-8锚点链接"><a href="#5-8锚点链接" class="headerlink" title="5.8锚点链接"></a>5.8锚点链接</h2><p>点击链接，可以快速定位到页面的某个位置</p>
-<ul>
-<li>在链接文本的href属性中，设置属性为#名字的形式，如<a href="#tow">第二集&lt;&gt;</a></li>
-<li>找到目标位置标签，里面添加一个id属性= 刚才的名字，如<h3 id="tow">第2集介绍</h3></li>
-</ul>
-<h2 id="5-9表格标签"><a href="#5-9表格标签" class="headerlink" title="5.9表格标签"></a>5.9表格标签</h2><p>表格主要用于显示、展示数据，因为它可以让数据显示的非常的规整，可读性非常好。特别是后台展示数据<br>的时候，能够熟练运用表格就湿得很重要。一个清爽简约的表格能够把察杂的数掘表现得很有条理，</p>
-<ul>
-<li><p>表格的基本语法</p>
-<p>1.<table></table>是用于定义表格的标签。<br>2.<tr></tr>标签用于定义表格中的行，必须嵌套在<table></table>标签中。<br>3.<td></td>用于定义表格中的单元格，必须嵌在<tr>标签中。<br>4.字母td指表格数据(table data),即数据弹元格的内容。</tr></p>
-</li>
-<li><p>表头单元格标签th</p>
-<p>1.位于表格第一行或第一列，单元格中的内容加粗居中</p>
-</li>
-<li><p>align:left、center、right对齐方式</p>
-</li>
-<li><p>border:表格的边框，1</p>
-</li>
-<li><p>cellpadding单元格沿与其内容之间的空白，默认1像素</p>
-</li>
-<li><p>cellspacing:单元格之间的空白，默认2像素</p>
-</li>
-<li><p>width:表格的宽度</p>
-</li>
-<li><p>表格结构标签：</p>
-<ul>
-<li>thead:表格头部区域</li>
-<li>tbody:表格主体区域</li>
-<li>tfoot:表格底部区域</li>
-</ul>
-</li>
-<li><p>合并单元格方式</p>
-<ul>
-<li>跨行合并：rowspan=’’合并单元格的个数’’</li>
-<li>跨行合并：colspan=’’合并单元格的个数’’</li>
-</ul>
-</li>
-</ul>
-<h2 id="5-10列表标签"><a href="#5-10列表标签" class="headerlink" title="5.10列表标签"></a>5.10列表标签</h2><p>列表最大的特点就是整齐、整洁、有序、它作为布局更加自由方便</p>
-<p>列表可以分类三大类：无序列表、有序列表、自定义列表</p>
-<h3 id="5-10-1无序列表"><a href="#5-10-1无序列表" class="headerlink" title="5.10.1无序列表"></a>5.10.1无序列表</h3><p>一般会以项目符号呈现列表项</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">       &lt;li&gt;榴莲&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;臭豆腐&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;鲱鱼罐头&lt;/li&gt;</span><br><span class="line">   &lt;/ul&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>无序列表的各个列表项之间没有顺序级别之分，是并列的</li>
-<li>ul中只能嵌套li标签</li>
-<li>li与li之间相当于一个容器，可以容纳所有元素</li>
-<li>无序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置</li>
-</ul>
-<h3 id="5-10-2有序列表"><a href="#5-10-2有序列表" class="headerlink" title="5.10.2有序列表"></a>5.10.2有序列表</h3><p>有序列表即为有排列顺序的列表，其名个列表项会按照定的顺序排列定义<br>在HTML标签中，<ol>标签用于定义有序列表，列表排序以数字来显示，并目使用<li>标签来定义列表项。</li></ol></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">     &lt;li&gt;刘德华 10000&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;刘若英 1000&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;pink老师 1&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>1.<ol><ol>中只能嵌套<i>&lt;n及，直接在<o><o>标签中输入其他标签或者文字的做法是不被允许的。</o></o></i></ol></ol></li>
-<li>2.<i>与&lt;川i&gt;之间相当于一个容器，可以容纳所有元素。</i></li>
-<li>3.有序列表会带有自己样式属性，但在实际使用时，我们会使用CSS来设置。</li>
-</ul>
-<h3 id="5-10-3自定义列表"><a href="#5-10-3自定义列表" class="headerlink" title="5.10.3自定义列表"></a>5.10.3自定义列表</h3><p>自定义列表的列表项前没有任何项目符号</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">        &lt;dt&gt;关注我们&lt;/dt&gt;</span><br><span class="line">        &lt;dd&gt;新浪微博&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;官方微信&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;联系我们&lt;/dd&gt;</span><br><span class="line">        &lt;dt&gt;关注我们&lt;/dt&gt;</span><br><span class="line">        &lt;dd&gt;新浪微博&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;官方微信&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;联系我们&lt;/dd&gt;</span><br><span class="line">    &lt;/dl&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-11表单标签"><a href="#5-11表单标签" class="headerlink" title="5.11表单标签"></a>5.11表单标签</h2><p>使用表单的目的是为了收集用户信息</p>
-<p>如：<a target="_blank" rel="noopener" href="https://reg.jiayuan.com/">https://reg.jiayuan.com/</a></p>
-<p> 表单组成：表单域、表单控件、提示信息等构成</p>
-<h3 id="5-11-1表单域"><a href="#5-11-1表单域" class="headerlink" title="5.11.1表单域"></a>5.11.1表单域</h3><p>表单域是一个包含表单元素的区域</p>
-<p>在HTML标签中，<from>标签用于定义域，以实现用户信息的收集和传递。from会把范围内的表单元素信息提交给服务器</from></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;from action=&#x27;url地址&#x27; method=&#x27;提交方式&#x27; name=&#x27;表单域名称&#x27;&gt;</span><br><span class="line">	各种表单元素控件</span><br><span class="line">&lt;/from&gt;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>action: 属性值(url地址),用于指定接收并处理表单数据的服务器程序的url地址</li>
-<li>method:属性值(get\post)，用于设置表单数据的提交方式，其取值为get或post</li>
-<li>name:属性值(名称)，用于指定表单的名称，以区分同一个页面中的多个表单域</li>
-</ul>
-<h3 id="5-11-2表单控件"><a href="#5-11-2表单控件" class="headerlink" title="5.11.2表单控件"></a>5.11.2表单控件</h3><h4 id="5-11-2-1input表单元素"><a href="#5-11-2-1input表单元素" class="headerlink" title="5.11.2.1input表单元素"></a>5.11.2.1input表单元素</h4><p><input>:标签用于收集用户信息，在input标签中，包含type属性，根据不同的type属性值，输入字段拥有多种形式(如：文本字段、复选框、掩码后的文本控件、单选按钮、按钮)</p>
-<p>type可用属性值为：buttom(按钮)、checkbox(复选框)、file(浏览，文件上传)、hidden（隐藏）、image(图片)、password(密码字段，字符掩码)、radio(单选框)、reset(重置按钮)、submit(提交按钮)、text(单行输入字段，默认宽度20个字符)</p>
-<ul>
-<li>name=(用户自定义)，定义input元素的名称</li>
-<li>value=(用户自定义)，规定input元素的值</li>
-<li>checked=（checked）,规定input元素首次加载时应当被选中</li>
-<li>maxlength=（整整数），规定输入字段中的字符的最大长度</li>
-</ul>
-<h4 id="5-11-2-1lable表单元素"><a href="#5-11-2-1lable表单元素" class="headerlink" title="5.11.2.1lable表单元素"></a>5.11.2.1lable表单元素</h4><p><a href="label:">label:</a>标签为input:元亲定义标注（标签），<br><abel>标签用于绑定一个表单元察当点击<a href="label:">label:</a>标签内的文本时，刘览器就会自动将焦点（光标转到成者<br>选择对应的表单元素上用来增加用户体验</abel></p>
-<p>语法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;lable for=&quot;nan&quot;&gt; 男：&lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;nan&quot;&gt;</span><br><span class="line">&lt;lable for=&quot;nv&quot;&gt; 女：&lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;nv&quot;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意：lable标签的for属性应当与相关元素的id属性相同</p>
-<h4 id="5-11-2-1select下拉菜单表单元素"><a href="#5-11-2-1select下拉菜单表单元素" class="headerlink" title="5.11.2.1select下拉菜单表单元素"></a>5.11.2.1select下拉菜单表单元素</h4><p>使用场景，在页面中，如果有多个选项让用户选择，并且要节约空间是，使用select下拉标签控件定义下拉列表</p>
-<p>格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">        籍贯: </span><br><span class="line">        &lt;select&gt;</span><br><span class="line">            &lt;option&gt;山东&lt;/option&gt;</span><br><span class="line">            &lt;option&gt;北京&lt;/option&gt;</span><br><span class="line">            &lt;option&gt;天津&lt;/option&gt;</span><br><span class="line">            &lt;option selected=&quot;selected&quot;&gt;火星&lt;/option&gt;</span><br><span class="line">        &lt;/select&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<ul>
-<li>select中至少包含一对option</li>
-<li>在option中定义delected=‘selected’时，当前项即默认选中项</li>
-</ul>
-<h4 id="5-11-2-1textarea文本域标签"><a href="#5-11-2-1textarea文本域标签" class="headerlink" title="5.11.2.1textarea文本域标签"></a>5.11.2.1textarea文本域标签</h4><p>格式：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;form&gt;</span><br><span class="line">        今日反馈:</span><br><span class="line">        &lt;textarea cols=&quot;50&quot; rows=&quot;5&quot;&gt;pink老师,我知道这个反馈留言是textarea来做的  			&lt;/textarea&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
-
-<p>注意：</p>
-<ul>
-<li>通过textarea标签可以轻松创建多行文本输入框</li>
-<li>cols=’每行中的字符数’，rows=’显示的行数’</li>
-</ul>
 
       
     </div>
