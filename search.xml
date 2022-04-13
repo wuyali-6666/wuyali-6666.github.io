@@ -125,27 +125,6 @@
       </categories>
   </entry>
   <entry>
-    <title>hexo</title>
-    <url>/2022/03/17/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <categories>
-        <category>HTML</category>
-      </categories>
-  </entry>
-  <entry>
     <title>HTML标签</title>
     <url>/2022/04/13/HTML%E6%A0%87%E7%AD%BE/</url>
     <content><![CDATA[<h1 id="一、标签目标"><a href="#一、标签目标" class="headerlink" title="一、标签目标"></a>一、标签目标</h1><p>1、能够说出标签的书写规范</p>
@@ -414,6 +393,30 @@
 <li>通过textarea标签可以轻松创建多行文本输入框</li>
 <li>cols=’每行中的字符数’，rows=’显示的行数’</li>
 </ul>
+]]></content>
+      <categories>
+        <category>HTML</category>
+      </categories>
+      <tags>
+        <tag>HTML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo</title>
+    <url>/2022/03/17/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
       <categories>
         <category>HTML</category>
@@ -1171,6 +1174,738 @@
       <categories>
         <category>面试题</category>
       </categories>
+  </entry>
+  <entry>
+    <title>CSS基础</title>
+    <url>/2022/04/13/CSS%E6%96%87%E6%A1%A3/</url>
+    <content><![CDATA[<h1 id="一、CSS导读"><a href="#一、CSS导读" class="headerlink" title="一、CSS导读"></a>一、CSS导读</h1><p>1、能使用emmeti语法</p>
+<p>2、能够使用CSS复合选择器<br>3、能够写出伪类选择器的使用规范<br>4、能够说出元素有几种显示模式<br>5、能够写出元素显示模式的相互转换代码<br>6、能够写出背景图片的设置方式<br>7、能够计算CSS的权重</p>
+<h2 id="二、目标"><a href="#二、目标" class="headerlink" title="二、目标"></a>二、目标</h2><h2 id="1、Emment语法"><a href="#1、Emment语法" class="headerlink" title="1、Emment语法"></a>1、Emment语法</h2><ul>
+<li>快速生成HTML的结构语法<ul>
+<li>1.生成标签直接输入标签名按tab键即可比如div然后tab键，就可以生成<div></div></li>
+<li>2.如果想要生成多个相同标签加上·就可以了比如di3就可以快速生成3个div</li>
+<li>3.如果有父子级关系的标签，可以用&gt;比如ul &gt;li 就可以了</li>
+<li>4,如果有兄弟关系的标签，用+就可以了比如div+p</li>
+<li>5.如果生成带有类名或者id名字的，直接写.demo或者#two tab键就可以了</li>
+<li>6.如果生成的iv类名是有顺序的，可以用自增符号$</li>
+</ul>
+</li>
+<li>快速生成CSS样式语法<ul>
+<li>比如w200按tab键，可以生成width:200px</li>
+<li>比如lh26按tab键，可以快速生成line-height:26px</li>
+</ul>
+</li>
+<li>快速格式化代码<ul>
+<li>shift+Alt+F</li>
+</ul>
+</li>
+</ul>
+<h2 id="2、CSS的复合选择器"><a href="#2、CSS的复合选择器" class="headerlink" title="2、CSS的复合选择器"></a>2、CSS的复合选择器</h2><p> 定义：在CSS中，可以根据选择器的类型把选择器分为基础选挥器和复合选择器，复合选择器是建立在基础选择器之上，对<br>基本选择器进行组合形成的.</p>
+<ul>
+<li>复合选择器可以更准确、更高效的选择目标元禁（标签）</li>
+<li>复合选择器是由两个或多个基选择器，通过不同的方式组合而成的</li>
+<li>常用的复合选择器包括：后代选择器、子选择器、并集选择器、伪类选择器等等</li>
+</ul>
+<h3 id="2-1后代选择器"><a href="#2-1后代选择器" class="headerlink" title="2.1后代选择器"></a>2.1后代选择器</h3><p>定义：后代选择器又称为包含选择器，可选择父元素里面子元素。其写法就是把外层标签写在前面，内层标签写在后面，中间用空格分隔。当标签发生嵌套时，内层标签就成为外层标签的后代。</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">元素1 元素2 &#123;样式声明&#125;      选择元素1里面所有的元素2</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>元素1和元素2中间用空格隔开</li>
+<li>元素1是父级，元素2是子级，最终选择的是元素2</li>
+<li>元素2可以是儿子，也可以是孙子，只要元素1的后代元素1即可</li>
+<li>元素1和元素2，可以是任意的选择器</li>
+</ul>
+<h3 id="2-2子元素选择器"><a href="#2-2子元素选择器" class="headerlink" title="2.2子元素选择器"></a>2.2子元素选择器</h3><p>定义：子元素选择器(子选择器),只能选择作为某个元素的最近一级元素。简单来说就是亲儿子元素</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">元素1&gt;元素2&#123;样式声明&#125;</span><br><span class="line">ui,li&#123;color:&#x27;red&#x27;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>元素1和元素2中间用大于号隔开</li>
+<li>元素1是父级，元素2是子级，最终选择的是元素2</li>
+<li>元素2必须是亲儿子，其孙子，重孙之类都不归他管，也可以成为亲儿子选择器</li>
+</ul>
+<h3 id="2-3并集选择器"><a href="#2-3并集选择器" class="headerlink" title="2.3并集选择器"></a>2.3并集选择器</h3><p>定义：并集选择器可以选择多组标签，同时为他们定义相同的样式</p>
+<p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ul,div&#123;样式声明&#125;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>元素1和元素中间用逗号隔开</li>
+<li>逗号可以理解为和的意思</li>
+<li>并集选择器通常用于集体声明</li>
+</ul>
+<h3 id="2-4伪类选择器"><a href="#2-4伪类选择器" class="headerlink" title="2.4伪类选择器"></a>2.4伪类选择器</h3><p>定义：伪类选择器用于向某些选择器添加特殊的效果，比如给连接添加特殊效果，或选择第1个，第个元素。<br>伪类选择器书写最大的特点是用百号(：)表示，如hover、:frst-child。<br>因为伪类选择器很多，比如有链接伪类、结构伪类等，以这里先给大家讲解常用的链接伪类选择器。</p>
+<h4 id="2-4-1链接伪类选择器"><a href="#2-4-1链接伪类选择器" class="headerlink" title="2.4.1链接伪类选择器"></a>2.4.1链接伪类选择器</h4><p>语法:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a:link  未被访问</span><br><span class="line">a:Visited   已被访问</span><br><span class="line">a:hover	鼠标指针位于上是的链接</span><br><span class="line">a:active  活动链接(鼠标按下未弹起的链接)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-2-focus伪类选择器"><a href="#2-4-2-focus伪类选择器" class="headerlink" title="2.4.2:focus伪类选择器"></a>2.4.2:focus伪类选择器</h4><p>定义：用于获取焦点的表单元素</p>
+<p>语法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">        /* // 把获得光标的input表单元素选取出来 */</span><br><span class="line">        input:focus &#123;</span><br><span class="line">            background-color: pink;</span><br><span class="line">            color: red;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">    &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、CSS的元素显示模式"><a href="#3、CSS的元素显示模式" class="headerlink" title="3、CSS的元素显示模式"></a>3、CSS的元素显示模式</h2><h3 id="3-1什么是元素的显示模式"><a href="#3-1什么是元素的显示模式" class="headerlink" title="3.1什么是元素的显示模式"></a>3.1什么是元素的显示模式</h3><p><strong>作用</strong>：网页的标签非常多，在不同地方会用到不同类型的标签，了解他们的特点可以更好的布局我们的网页</p>
+<p>元素显示就是元素(标签)以什么方式进行显示，比如div独占一行，span一行有多个</p>
+<h3 id="3-2元素显示模式的分类"><a href="#3-2元素显示模式的分类" class="headerlink" title="3.2元素显示模式的分类"></a>3.2元素显示模式的分类</h3><p>HTML元素一般分为块元素和行内元素两种类型</p>
+<h4 id="3-2-1块元素"><a href="#3-2-1块元素" class="headerlink" title="3.2.1块元素"></a>3.2.1块元素</h4><p>常见的块级元素有</p><h1>、<p>、<div>、<ul>、<ol>、<li></li></ol></ul></div></p>
+<p>特点：</p>
+<ul>
+<li>比较霸道，自己独占一行</li>
+<li>高度和宽度及外边距和内边距都可以控制</li>
+<li>宽度默认是容器(父级宽度)的100%</li>
+<li>是一个容器及盒子，里面可以放行内或者块级元素</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>文字类的元素不能使用块级元素</li>
+<li>p标签主要用于存放文字，因此p里面不能放块级元素，特别是不能放div</li>
+<li>同理,h1-h6等都是文字类块级标签，里面不能放其他块级元素</li>
+</ul>
+<h4 id="3-2-2行内元素"><a href="#3-2-2行内元素" class="headerlink" title="3.2.2行内元素"></a>3.2.2行内元素</h4><p>常见的行内元素有:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;a&gt;、&lt; strong&gt;、&lt;b&gt;、&lt;em&gt;、&lt;i&gt;、&lt;del&gt;、&lt;s&gt;、&lt;ins&gt;、&lt;u&gt;、&lt;span&gt;</span><br></pre></td></tr></table></figure>
+
+<p>特点：</p>
+<ul>
+<li>相邻行内元素在一行上，一行可以显示多个</li>
+<li>高度，宽度直接设置是无效的</li>
+<li>默认宽度就是它本身内容的宽度</li>
+<li>行内元素只能容纳文本或其他行内元素</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>链接里面不能放链接</li>
+<li>特殊情况链接<a>里面可以放块级元素，但是给<a>转换一下屏幕一下屏幕一下屏幕块级模式最安全</a></a></li>
+</ul>
+<h4 id="2-2-3行内块元素"><a href="#2-2-3行内块元素" class="headerlink" title="2.2.3行内块元素"></a>2.2.3行内块元素</h4><p>常见的行内块元素：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img/&gt; 、&lt;input&gt;、&lt;td&gt;</span><br></pre></td></tr></table></figure>
+
+<p>同时具有块级元素和行内元素的特点</p>
+<p>特点：</p>
+<ul>
+<li>和相邻行内元素(行内块)在一行上，但是他们之间会有空隙，一行可以显示多个(行内元素特点)</li>
+<li>默认宽度就是它本身内容的宽度(行内元素特点)</li>
+<li>高度、行高、外边距以及内边距都可以控制(块级元素特点)</li>
+</ul>
+<h3 id="3-3元素显示模式的转换"><a href="#3-3元素显示模式的转换" class="headerlink" title="3.3元素显示模式的转换"></a>3.3元素显示模式的转换</h3><p>displat:block块元素</p>
+<p>display:inline行内元素</p>
+<p>display:inline-block行内块元素</p>
+<h2 id="4、CSS的背景"><a href="#4、CSS的背景" class="headerlink" title="4、CSS的背景"></a>4、CSS的背景</h2><p>通过CSS背景属性，可以给页面元素添加背景样式</p>
+<p>背景属性可以设置背景颜色、背景图片、背景平铺、背景图片位置、背景图像固定等</p>
+<h3 id="4-1背景颜色"><a href="#4-1背景颜色" class="headerlink" title="4.1背景颜色"></a>4.1背景颜色</h3><p>background-color：定义元素的背景颜色</p>
+<p>格式：background-color:颜色值；</p>
+<p>一般情况下元素背景默认颜色值是transparent(透明),也可以手动指定背景颜色为透明色。</p>
+<h3 id="4-2背景属性"><a href="#4-2背景属性" class="headerlink" title="4.2背景属性"></a>4.2背景属性</h3><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>background</strong></td>
+<td>简写属性，作用是将背景属性设置在一个声明中。</td>
+</tr>
+<tr>
+<td><strong>background-color</strong></td>
+<td>设置元素的背景颜色。transparent（透明色）rgba(255,255,255,0.5)</td>
+</tr>
+<tr>
+<td><strong>background-image</strong></td>
+<td>把图像设置为背景。none 、url</td>
+</tr>
+<tr>
+<td><strong>background-repeat</strong></td>
+<td>设置背景图像是否及如何重复。repeat、repeat-x、repeat-y、no-repeat</td>
+</tr>
+<tr>
+<td><strong>background-position</strong></td>
+<td>背景图像的起始位置。横向(left,center,right),纵向(top,center,bottom),百分比和长度。</td>
+</tr>
+<tr>
+<td><strong>background-attachment</strong></td>
+<td>背景图像是否固定或者随着页面的其余部分滚动。scroll(滚动)或fixed(固定)</td>
+</tr>
+</tbody></table>
+<h2 id="5、CSS的三大特性"><a href="#5、CSS的三大特性" class="headerlink" title="5、CSS的三大特性"></a>5、CSS的三大特性</h2><h2 id="6、CSS的注释"><a href="#6、CSS的注释" class="headerlink" title="6、CSS的注释"></a>6、CSS的注释</h2><h2 id="7、CSS的颜色"><a href="#7、CSS的颜色" class="headerlink" title="7、CSS的颜色"></a>7、CSS的颜色</h2><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>预定义颜色</strong></td>
+<td>red，green，blue、yellow、purple、pink、white、black</td>
+</tr>
+<tr>
+<td><strong>十六进制</strong></td>
+<td>#ff0000、#00ff00、#0000ff、#ff0、#f0f、#0ff、#fff、#000</td>
+</tr>
+<tr>
+<td><strong>rgb</strong></td>
+<td>rgb(255,0,0) 或 rgb(100%,0%,0%)</td>
+</tr>
+<tr>
+<td><strong>rgba</strong></td>
+<td>rgba(255,0,0,.5) 其中最后一个数表示透明度，取值范围0~1,值越小透明度越高</td>
+</tr>
+</tbody></table>
+<ul>
+<li>三元色指色彩中不能再分解的三种基本颜色</li>
+<li>光学三元色是RGB（红绿蓝）</li>
+<li>所有颜色都由三元色混合而成<br>红+绿=黄；<br>绿+蓝=青；<br>红+蓝=紫；<br>红+绿+蓝=白;</li>
+</ul>
+<h2 id="8、CSS的尺寸"><a href="#8、CSS的尺寸" class="headerlink" title="8、CSS的尺寸"></a>8、CSS的尺寸</h2><table>
+<thead>
+<tr>
+<th><strong>单位</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>相对长度单位</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>px</strong></td>
+<td>像素</td>
+</tr>
+<tr>
+<td><strong>%</strong></td>
+<td>百分比</td>
+</tr>
+<tr>
+<td><strong>em</strong></td>
+<td>相对于当前文本字体尺寸的倍数</td>
+</tr>
+<tr>
+<td><strong>绝对长度单位</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>in</td>
+<td>英寸 1 英寸=2.54 厘米</td>
+</tr>
+<tr>
+<td>cm</td>
+<td>厘米</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>毫米</td>
+</tr>
+</tbody></table>
+<h2 id="9、字体属性"><a href="#9、字体属性" class="headerlink" title="9、字体属性"></a>9、字体属性</h2><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>font-family</strong></td>
+<td>设置字体。比如：<strong>Microsoft YaHei<strong><strong>、</strong></strong>SimSun</strong> <strong>、<strong><strong>SimHei</strong></strong>、KaiTi</strong></td>
+</tr>
+<tr>
+<td><strong>font-size</strong></td>
+<td>设置字体的尺寸. 单位：<strong>px****、</strong> <strong>em****、</strong> <strong>%</strong></td>
+</tr>
+<tr>
+<td><strong>font-style</strong></td>
+<td>设置字体风格。<strong>normal</strong>**(<strong><strong>标准</strong></strong>)<strong><strong>、</strong></strong>italic(<strong><strong>斜体</strong></strong>)<strong><strong>、</strong></strong>oblique(<strong><strong>倾斜</strong></strong>)**</td>
+</tr>
+<tr>
+<td><strong>font-weight</strong></td>
+<td>设置字体的粗细 <strong>normal/bold</strong><strong>/bolder/lighter/100~900****400</strong>等同于<strong>normal，</strong>而600 等同于 bold</td>
+</tr>
+<tr>
+<td><strong>font</strong></td>
+<td>简写属性。作用是把所有针对字体的属性设置在一个声明中。简写属性是有顺序的，不要随意换位置，其中字号和字体必须要有</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	font:italic  bold  12px/1.5em  impact,宋体;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="10、文本属性"><a href="#10、文本属性" class="headerlink" title="10、文本属性"></a>10、文本属性</h2><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>letter-spacing</strong></td>
+<td>设置字符间距。必须符合长度格式，允许使用负值。</td>
+</tr>
+<tr>
+<td><strong>word-spacing</strong></td>
+<td>设置单词间距。必须符合长度格式，允许使用负值。</td>
+</tr>
+<tr>
+<td><strong>text-decoration</strong></td>
+<td>向文本添加修饰。underline(下划线),overline(上划线),line-through(删除线)默认使用none</td>
+</tr>
+<tr>
+<td><strong>text-align</strong></td>
+<td>对齐元素中的文本。left,right,center</td>
+</tr>
+<tr>
+<td><strong>text-indent</strong></td>
+<td>缩进元素中文本的首行。可以为一个长度或百分比</td>
+</tr>
+<tr>
+<td><strong>line-height</strong></td>
+<td>设置行高。</td>
+</tr>
+<tr>
+<td><strong>color</strong></td>
+<td>设置文本颜色</td>
+</tr>
+</tbody></table>
+<h2 id="11、行高：-line-height"><a href="#11、行高：-line-height" class="headerlink" title="11、行高： line-height"></a>11、行高： line-height</h2><ul>
+<li>line-height属性用来设置行高</li>
+<li>行高指的是两行文字基线间的距离</li>
+<li>行高的默认值与字体大小相等</li>
+</ul>
+<h2 id="12、文本对齐"><a href="#12、文本对齐" class="headerlink" title="12、文本对齐"></a>12、文本对齐</h2><h3 id="单行文本垂直居中对齐"><a href="#单行文本垂直居中对齐" class="headerlink" title="单行文本垂直居中对齐"></a>单行文本垂直居中对齐</h3><ul>
+<li>行高我们利用最多的一个地方是： 可以让单行文本在盒子中垂直居中对齐</li>
+<li>实现方法：文字的行高等于盒子的高度<ul>
+<li>行高和盒子高度的三种关系<br>如果 行高 等 高度  文字会 垂直居中<br>如果行高 大于 高度   文字会 偏下<br>如果行高小于高度   文字会  偏上 </li>
+</ul>
+</li>
+</ul>
+<h3 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h3><ul>
+<li><p>vertical-align定义行内元素的基线相对于该元素所在行的基线的垂直对齐方式</p>
+</li>
+<li><p>vertical-align对块级元素无效</p>
+</li>
+<li><p>vertical常用的取值：<br>top            顶线对齐<br>middle      中线对齐<br>bottom     底线对齐</p>
+</li>
+<li><p>vertical-align主要有两个用途：</p>
+<p>图片和文字的垂直对齐方式<br>表格中单元格内文字的垂直对齐方式</p>
+</li>
+</ul>
+<h2 id="13、精灵图（雪碧图）"><a href="#13、精灵图（雪碧图）" class="headerlink" title="13、精灵图（雪碧图）"></a>13、精灵图（雪碧图）</h2><ul>
+<li>CSS精灵技术（也称CSS Sprites、CSS雪碧）</li>
+<li>CSS 精灵图其实就是将网页中的一些背景图像整合到一张大图中（精灵图）</li>
+<li>为什么使用精灵图？<br>一个网页中往往会应用很小的背景图作为修饰,当网页上的图像过多时,就会向服务器频繁请求图片,造成服务器请求压力过大<br>为了有效地减少服务器发送请求的次数,提高页面的加载速度,出现了css精灵技术</li>
+</ul>
+<h2 id="14、盒子模型"><a href="#14、盒子模型" class="headerlink" title="14、盒子模型"></a>14、盒子模型</h2><ul>
+<li>每个HTML元素都可以看作装了东西的盒子</li>
+<li>盒子具有宽度（width）和高度（height）</li>
+<li>盒子里面的内容到盒子的边框之间的距离即内填充（padding）</li>
+<li>盒子边框（border）</li>
+<li>盒子外边距 (margin）</li>
+</ul>
+<h3 id="14-1内填充属性"><a href="#14-1内填充属性" class="headerlink" title="14.1内填充属性"></a>14.1内填充属性</h3><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>padding-top</strong></td>
+<td>上填充</td>
+</tr>
+<tr>
+<td><strong>padding-bottom</strong></td>
+<td>下填充</td>
+</tr>
+<tr>
+<td><strong>padding</strong>-left</td>
+<td>左填充</td>
+</tr>
+<tr>
+<td><strong>padding</strong>-right</td>
+<td>右填充</td>
+</tr>
+<tr>
+<td><strong>padding</strong></td>
+<td><strong>padding:25px;</strong>            <strong>上下左右填充均为****25px</strong></td>
+</tr>
+<tr>
+<td><strong>padding</strong>:25px 50px;      <strong>上下填充为</strong>25px,左右填充为50px</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>padding</strong>:25px 30px 50px;上填充为25px,左右填充为30px,下填充为50px</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>padding</strong>:25px 30px 40px 50px; <strong>填充顺序为上右下左</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="14-2边框属性"><a href="#14-2边框属性" class="headerlink" title="14.2边框属性"></a>14.2边框属性</h3><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>border-style</strong></td>
+<td>边框线条样式 dotted <strong>solid</strong> double dashed none: 无样式</td>
+</tr>
+<tr>
+<td><strong>border-width</strong></td>
+<td>边框宽度</td>
+</tr>
+<tr>
+<td><strong>border-color</strong></td>
+<td>边框颜色</td>
+</tr>
+<tr>
+<td><strong>border</strong></td>
+<td>用于把针对四个边的属性设置在一个声明。</td>
+</tr>
+<tr>
+<td><strong>border-bottom</strong></td>
+<td>用于把下边框的所有属性设置到一个声明中。</td>
+</tr>
+<tr>
+<td><strong>border-left</strong></td>
+<td>用于把左边框的所有属性设置到一个声明中。</td>
+</tr>
+<tr>
+<td><strong>border-right</strong></td>
+<td>用于把右边框的所有属性设置到一个声明中。</td>
+</tr>
+<tr>
+<td><strong>border-top</strong></td>
+<td>用于把上边框的所有属性设置到一个声明中。</td>
+</tr>
+</tbody></table>
+<h3 id="14-3外边距属性"><a href="#14-3外边距属性" class="headerlink" title="14.3外边距属性"></a>14.3外边距属性</h3><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>margin-top</strong></td>
+<td>上<strong>边距</strong></td>
+</tr>
+<tr>
+<td>**margin-**bottom</td>
+<td>下<strong>边距</strong></td>
+</tr>
+<tr>
+<td><strong>margin-left</strong></td>
+<td>左<strong>边距</strong></td>
+</tr>
+<tr>
+<td><strong>margin-right</strong></td>
+<td>右<strong>边距</strong></td>
+</tr>
+<tr>
+<td><strong>margin</strong></td>
+<td><strong>margin:25px;</strong>  上下左右边距均为25px</td>
+</tr>
+<tr>
+<td><strong>margin:25px 50px;</strong>  上下<strong>边距为</strong>25px,左右边距为50px</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>margin:25px 30px 50px;</strong>  上边距为25px,左右边距为30px下边距为50px</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>margin:25px 30px 40px 50px;</strong>  <strong>边距</strong>顺序为上右下左</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="14-4外边距合并问题"><a href="#14-4外边距合并问题" class="headerlink" title="14.4外边距合并问题"></a>14.4外边距合并问题</h3><ul>
+<li><p>外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。</p>
+</li>
+<li><p>合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</p>
+<p>注释：只有普通文档流中块级框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。</p>
+</li>
+</ul>
+<h3 id="14-5行内元素的margin和padding问题"><a href="#14-5行内元素的margin和padding问题" class="headerlink" title="14.5行内元素的margin和padding问题"></a>14.5行内元素的margin和padding问题</h3><ul>
+<li>行内元素的margin-left、margin-right、padding-left、padding-right是有效的</li>
+<li>行内元素的margin-top、margin-bottom是无效的</li>
+<li>行内元素的padding-top、padding-bottom看起来有效，但不会其它元素产生影响</li>
+</ul>
+<h2 id="15、圆角边框"><a href="#15、圆角边框" class="headerlink" title="15、圆角边框"></a>15、圆角边框</h2><p>语法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">border-radius: length;  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>lenght可能以数值或百分比<br> 四个值: 左上角   右上角   右下角   左下角;<br> 三个值: 左上角   右上角和左下角   右下角;<br> 两个值: 左上角与右下角    右上角与左下角;<br> 一个值: 四个圆角值相同;</li>
+<li>小技巧：<br>正方形变圆形：border-radius: 50%;<br>长方形变椭圆形：border-radius: 50%;</li>
+</ul>
+<h2 id="16、表格属性"><a href="#16、表格属性" class="headerlink" title="16、表格属性"></a>16、表格属性</h2><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>border-collapse</strong></td>
+<td><strong>separate/collapse</strong>  是否合并边框</td>
+</tr>
+<tr>
+<td><strong>caption-side</strong></td>
+<td><strong>top/bottom</strong>     表格标题位置</td>
+</tr>
+<tr>
+<td><strong>empty-cells</strong></td>
+<td><strong>show/hide</strong>      是否显示空单元格（不能和border-collapse同时使用)</td>
+</tr>
+<tr>
+<td><strong>table-layout</strong></td>
+<td><strong>auto</strong>         列宽由单元格内容决定<strong>fixed</strong>        列宽由第一行单元格宽度来决定,平均分配剩余列宽</td>
+</tr>
+</tbody></table>
+<h2 id="17、光标属性"><a href="#17、光标属性" class="headerlink" title="17、光标属性"></a>17、光标属性</h2><ul>
+<li>cursor属性：</li>
+<li>crosshair：精确定位“十”字形；</li>
+<li>pointer：“小手”形状</li>
+<li>text：文本“I”形；</li>
+<li>wait：等待，“沙漏”形(不同浏览器有差异)；</li>
+<li>default：默认指针； </li>
+<li>help：帮助，带尾箭头；</li>
+<li>auto：鼠标按照默认的状态根据页面上的元素自行改变样式</li>
+<li>move：移动</li>
+</ul>
+<h2 id="18、透明属性"><a href="#18、透明属性" class="headerlink" title="18、透明属性"></a>18、透明属性</h2><ul>
+<li>IE9，Firefox，Chrome，Opera，和Safari浏览器使用透明度属性可以将图像变的不透明。 Opacity属性值从0.0 - 1.0。值越小，使得元素更加透明。</li>
+<li>IE8和早期版本使用滤镜：alpha（opacity= x）。 x可以采取的值是从0 - 100。较低的值，使得元素更加透明。</li>
+</ul>
+<p>语法格式：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">	opacity:0.4;</span><br><span class="line">	filter:alpha(opacity=40);/For IE8 and earlier *</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注意：元素透明和背景透明的区别<br>元素透明指元素里面包含的所有内容都透明<br>背景透明只是元素背景透明，元素中包含的内容并不会透明</li>
+</ul>
+<h2 id="19、列表属性"><a href="#19、列表属性" class="headerlink" title="19、列表属性"></a>19、列表属性</h2><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>list-style-type</strong></td>
+<td>设定引导列表项的符号类型值为none、disc、circle、square、decimal、lower-roman</td>
+</tr>
+<tr>
+<td><strong>list-style-image</strong></td>
+<td>使用图像作为定制列表符号</td>
+</tr>
+<tr>
+<td><strong>list-style-position</strong></td>
+<td>决定列表项目缩进的程度 outside(默认)、inside</td>
+</tr>
+</tbody></table>
+<h2 id="20、溢出属性"><a href="#20、溢出属性" class="headerlink" title="20、溢出属性"></a>20、溢出属性</h2><ul>
+<li>当内容超出容器大小时便会溢出<ul>
+<li>overflow |overflow-x |overflow-y</li>
+<li>visible(默认允许溢出)</li>
+<li>hidden（隐藏溢出内容）</li>
+<li>scroll （溢出和不溢出都显示滚动条）</li>
+<li>auto （自动，溢出显示滚动条，不溢出不显示滚动条）</li>
+</ul>
+</li>
+</ul>
+<h3 id="20-1单行文本省略号显示"><a href="#20-1单行文本省略号显示" class="headerlink" title="20.1单行文本省略号显示"></a>20.1单行文本省略号显示</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">div&#123;</span><br><span class="line">width:200px;</span><br><span class="line">height:100px;</span><br><span class="line">               	line-height: 100px;</span><br><span class="line">/*隐藏多余文本*/</span><br><span class="line">overflow : hidden;</span><br><span class="line">/*强制不自动换行*/</span><br><span class="line">white-space: nowrap;</span><br><span class="line">/*用省略号“…”表示超出范围的隐藏文本*/</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="20-2多行文本省略号显示"><a href="#20-2多行文本省略号显示" class="headerlink" title="20.2多行文本省略号显示"></a>20.2多行文本省略号显示</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> div&#123;</span><br><span class="line">width:200px;</span><br><span class="line">height:100px;</span><br><span class="line">                 /*隐藏多余文本*/</span><br><span class="line">overflow : hidden;</span><br><span class="line">/*强制换行*/</span><br><span class="line">word-break: break-all;</span><br><span class="line">/*用省略号“…”表示超出范围的隐藏文本*/</span><br><span class="line">text-overflow: ellipsis;</span><br><span class="line">/*作为弹性伸缩盒子模型显示*/</span><br><span class="line">display: -webkit-box;</span><br><span class="line">/*限制在一个块元素显示的文本的行数*/</span><br><span class="line">-webkit-line-clamp: 5;</span><br><span class="line">/*设置或检索伸缩盒子的子元素的排列方式*/</span><br><span class="line">-webkit-box-orient: vertical;        </span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="21、浮动"><a href="#21、浮动" class="headerlink" title="21、浮动"></a>21、浮动</h2><h3 id="21-1布局模型"><a href="#21-1布局模型" class="headerlink" title="21.1布局模型"></a>21.1布局模型</h3><ul>
+<li>布局模型与盒模型一样都是 CSS 最基本、 最核心的概念，布局模型建立在盒模型基础之上，定义了元素的排列方式。</li>
+<li>CSS包含3种基本的布局模型：<br>流动模型（Flow）：标准流<br>块级元素独占一行，从上往下排列<br>行级元素从左往右排列，一行排不下时自自动换行<br>浮动模型 (Float) ：浮动<br>左浮动：元素靠左排列<br>右浮动：元素靠右排列<br>层模型（Layer）：定位<br>对元素进行精确定位，分为相对定位、绝对定位、固定定位三种方式</li>
+</ul>
+<h3 id="21-2浮动"><a href="#21-2浮动" class="headerlink" title="21.2浮动"></a>21.2浮动</h3><ul>
+<li>浮动的元素可以向左或向右移动，直到它的外边缘碰到包含框或另一个浮动元素的边框为止</li>
+<li>float属性<br>none  元素不浮动（默认值）<br>left     元素向左浮动<br>right   元素向右浮动</li>
+</ul>
+<h3 id="21-3浮动的作用"><a href="#21-3浮动的作用" class="headerlink" title="21.3浮动的作用"></a>21.3浮动的作用</h3><ul>
+<li>让多个块级盒子水平排列成一行，而且之间没有空隙</li>
+<li>实现盒子的左右对齐</li>
+<li>浮动的元素和后面的文字之间会形成字围效果</li>
+</ul>
+<p>注：实际重要的导航栏中，我们不会直接用链接a 而是用 li  包含链接(li+a)的做法,原因如下：<br>li+a 语义更清晰，一看这就是有条理的列表型内容。<br>如果直接用a，搜索引擎容易辨别为有堆砌关键字嫌疑（故意堆砌关键字容易被搜索引擎有降权的风险），从而影响网站排名</p>
+<h3 id="21-4浮动的特点"><a href="#21-4浮动的特点" class="headerlink" title="21.4浮动的特点"></a>21.4浮动的特点</h3><ul>
+<li>漂浮在普通流的上面，脱离标准流。 俗称“脱标”</li>
+<li>浮动的盒子，把自己原来的位置让给下面标准流的盒子，就是不占有原来位置</li>
+<li>浮动的元素自动转换为行内块元素</li>
+<li>浮动只影响当前和后面的元素，不会影响前面的标准流元素</li>
+<li>浮动参照父盒子对齐，不会浮动到父盒子之外</li>
+<li>浮动不会覆盖文字、图片、表单元素等内容</li>
+</ul>
+<h3 id="21-5清除浮动"><a href="#21-5清除浮动" class="headerlink" title="21.5清除浮动"></a>21.5清除浮动</h3><ul>
+<li>为什么要清除浮动？<br>父级元素没有设置高度时因为子级元素浮动无法撑起父级盒子从而导致的父元素高度为0 。<br>父元素失去高度后会对后面的元素造成影响<br>清除浮动之后， 父级就会根据浮动的子盒子自动检测高度，从而可以解决问题</li>
+<li>clear:规定元素的哪一侧不允许其他浮动元素<br>none:默认值。允许浮动元素出现在两侧<br>left:在左侧不允许浮动元素<br>right:在右侧不允许浮动元素<br>both:在左右两侧均不允许浮动元素<br>注意：在我们实际工作中， 几乎只用 clear: both;</li>
+</ul>
+<h3 id="21-6-清除浮动的几种方法"><a href="#21-6-清除浮动的几种方法" class="headerlink" title="21.6 清除浮动的几种方法"></a>21.6 清除浮动的几种方法</h3><ul>
+<li><p>给父元素指定高度</p>
+</li>
+<li><p>内墙法(额外标签法)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">是W3C推荐的做法是通过在浮动元素末尾添加一个空的标签</span><br><span class="line">例如 &lt;div style=&quot;clear:both&quot;&gt;&lt;/div&gt;，或者其他标签亦可。</span><br><span class="line">优点： 通俗易懂，书写方便</span><br><span class="line">缺点： 添加许多无意义的标签，结构化较差。</span><br></pre></td></tr></table></figure></li>
+<li><p>父级元素添加overflow属性方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">给父级元素添加overflow属性，值为 hidden| auto| scroll  都可以实现。</span><br><span class="line">优点：代码简洁</span><br><span class="line">缺点：内容增多时候容易造成无法显示需要溢出的元素</span><br></pre></td></tr></table></figure></li>
+<li><p>使用after伪元素清除浮动</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">:after 方式为空元素额外标签法的升级版，不用单独添加标签</span><br><span class="line">只需要给父元素添加类选择器.clearfix就行了</span><br><span class="line">优点： 不用单独加标签的情况下解决浮动问题</span><br><span class="line">缺点： 由于IE6-7不支持:after，使用 zoom:1触发 hasLayout。</span><br><span class="line">代表网站： 京东、百度、淘宝网、网易等</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.clearfix:after &#123;  content: &quot;&quot;; display: block; height: 0; clear: both; visibility: hidden;  &#125;   </span><br><span class="line"></span><br><span class="line"> .clearfix &#123;*zoom: 1;&#125;   /* IE6、7 专用 */</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用双伪元素清除浮动</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">优点：  代码更简洁</span><br><span class="line">缺点： 由于IE6-7不支持:after，使用 zoom:1触发 hasLayout</span><br><span class="line">代表网站： 小米、腾讯等</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">.clearfix:before,.clearfix:after &#123; </span><br><span class="line">  content:&quot;&quot;;</span><br><span class="line">  display:table; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clearfix:after &#123;</span><br><span class="line"> clear:both;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.clearfix &#123;</span><br><span class="line">  *zoom:1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="22-CSS定位"><a href="#22-CSS定位" class="headerlink" title="22.CSS定位"></a>22.CSS定位</h2><h3 id="22-1css布局模型"><a href="#22-1css布局模型" class="headerlink" title="22.1css布局模型"></a>22.1css布局模型</h3><ul>
+<li>布局模型与盒模型一样都是 CSS 最基本、 最核心的概念,但布局模型是建立在盒模型基础之上。</li>
+<li>CSS包含3种基本的布局模型：<br>流动模型（Flow）<br>浮动模型 (Float)<br>层模型（Layer）：定位</li>
+</ul>
+<h3 id="22-2定位属性"><a href="#22-2定位属性" class="headerlink" title="22.2定位属性"></a>22.2定位属性</h3><ul>
+<li>position：static; 静态定位，默认标准流，就是无定位的意思</li>
+<li>position : relative; 相对定位</li>
+<li>position : absolute; 绝对定位</li>
+<li>position : fixed; 固定定位<br>定位属性通过top、bottom、left、right四个属性来定位</li>
+</ul>
+<h3 id="22-3相对定位"><a href="#22-3相对定位" class="headerlink" title="22.3相对定位"></a>22.3相对定位</h3><ul>
+<li>position : relative;</li>
+<li>相对于原位置来重新定位（自恋型）</li>
+<li>不会让出原空间位置</li>
+</ul>
+<h3 id="22-4绝对定位"><a href="#22-4绝对定位" class="headerlink" title="22.4绝对定位"></a>22.4绝对定位</h3><ul>
+<li>position : absolute;</li>
+<li>相对于最近的那个已定位的父（祖先）元素定位（拼爹型）</li>
+<li>如果没有已定位的父元素则相对于当前浏览器可视窗口定位</li>
+<li>让出原空间位置</li>
+</ul>
+<h3 id="22-5固定定位"><a href="#22-5固定定位" class="headerlink" title="22.5固定定位"></a>22.5固定定位</h3><ul>
+<li>position : fixed;</li>
+<li>参照于浏览器可视窗口进行定位（固执型）</li>
+<li>不会随浏览器页面的滚动而改变位置</li>
+<li>让出原空间位置</li>
+</ul>
+<h3 id="22-6子相父绝"><a href="#22-6子相父绝" class="headerlink" title="22.6子相父绝"></a>22.6子相父绝</h3><ul>
+<li>子元素使用绝对定位，父元素使用相对定位</li>
+<li>子元素绝对定位，不会占用标准流位置</li>
+<li>父元素相对定位，则子元素会相对于父元素进行定位，且父元素可保留原位置</li>
+</ul>
+<h3 id="22-7水平垂直居中定位"><a href="#22-7水平垂直居中定位" class="headerlink" title="22.7水平垂直居中定位"></a>22.7水平垂直居中定位</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*方法一：模拟表格法*/     </span><br><span class="line">div&#123;</span><br><span class="line">display: table;</span><br><span class="line">width: 200px;</span><br><span class="line">height: 200px;</span><br><span class="line">background: gray;</span><br><span class="line">text-align: center;</span><br><span class="line">&#125;</span><br><span class="line">span&#123;</span><br><span class="line">        display: table-cell;</span><br><span class="line">        vertical-align: middle;</span><br><span class="line">&#125;</span><br><span class="line">/*方法二：覆盖行高法*/     </span><br><span class="line">div&#123;</span><br><span class="line">width: 200px;</span><br><span class="line">height: 200px;</span><br><span class="line">background: gray;</span><br><span class="line">text-align: center;</span><br><span class="line">line-height:200px;</span><br><span class="line">&#125;</span><br><span class="line">span&#123;</span><br><span class="line">        display:inline-block;</span><br><span class="line">        line-height:20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="22-8如何将一个盒子定位到页面的最中心？"><a href="#22-8如何将一个盒子定位到页面的最中心？" class="headerlink" title="22.8如何将一个盒子定位到页面的最中心？"></a>22.8如何将一个盒子定位到页面的最中心？</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*方法一*/     </span><br><span class="line"> div&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	width:300px;</span><br><span class="line">	height:300px;</span><br><span class="line">	top:50%;</span><br><span class="line">	left:50%;</span><br><span class="line">	margin-left:-150px;</span><br><span class="line">	margin-top:-150px;</span><br><span class="line">           &#125;</span><br><span class="line">/*方法二*/      </span><br><span class="line">div&#123;</span><br><span class="line">	position:absolute;</span><br><span class="line">	width:300px;</span><br><span class="line">	height:300px;</span><br><span class="line">	top:0;</span><br><span class="line">	left:0;</span><br><span class="line">	right:0;</span><br><span class="line">	bottom:0;</span><br><span class="line">	margin:auto;           </span><br><span class="line">          &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="22-9定位的特性"><a href="#22-9定位的特性" class="headerlink" title="22.9定位的特性"></a>22.9定位的特性</h3><p>1、绝对定位、固定定位的元素会自动转换为行内块元素，而相对定位的元素不会发生自动转换<br>2、父元素有绝对定位、固定定位，可以解决子元素浮动造成的失去高度的问题，而相对定位不行。<br>3、绝对定位的元素不受父元素padding的影响，但受border影响</p>
+<h3 id="22-10堆叠顺序属性"><a href="#22-10堆叠顺序属性" class="headerlink" title="22.10堆叠顺序属性"></a>22.10堆叠顺序属性</h3><ul>
+<li>加了定位的盒子，默认后来者居上， 后面的盒子会压住前面的盒子。</li>
+<li>应用z-index层叠等级属性可以调整盒子的堆叠顺序</li>
+<li>z-index：数字;</li>
+<li>属性值：正整数、负整数或 0; 默认值是 0，数值越大，盒子越靠上；</li>
+<li>只针对定位的元素生效，标准流和浮动元素无效</li>
+</ul>
+<h3 id="22-11可见性属性"><a href="#22-11可见性属性" class="headerlink" title="22.11可见性属性"></a>22.11可见性属性</h3><ul>
+<li>visibility:hidden<br>visibility属性指定一个元素应可见还是隐藏<br>visibility:hidden可以隐藏某个元素，但隐藏的元素仍需占用与未隐藏之前一样的空间<br>visibility:visible  默认值，元素是可见的</li>
+<li>display<br>display:none可以隐藏某个元素，且隐藏的元素不会占用任何空间<br>display:visible可以显示某个元素，默认就是visible</li>
+</ul>
+<h3 id="22-12定位使用的范围"><a href="#22-12定位使用的范围" class="headerlink" title="22.12定位使用的范围"></a>22.12定位使用的范围</h3><ul>
+<li>层布局模型（定位）就像是图像软件PhotoShop中非常流行的图层编辑功能一样，每个图层能够精确定位操作，但在网页设计领域，由于网页大小的活动性，层布局没能受到热捧。但是在网页上局部使用层布局还是有其方便之处的。</li>
+<li>页面布局的时候，我们用浮动。局部定位的时候用定位。</li>
+<li>不要滥用定位！</li>
+</ul>
+<h2 id="23字体图标"><a href="#23字体图标" class="headerlink" title="23字体图标"></a>23字体图标</h2><h3 id="23-1icomoon-字库"><a href="#23-1icomoon-字库" class="headerlink" title="23.1icomoon 字库"></a>23.1icomoon 字库</h3><ul>
+<li>字体图标主要用来显示网页中常用的一些小图标，和精灵图图标相比更为方便和高效</li>
+<li>优点：<br>更轻量：比图片更小，一量字体加载了，图标就会显示，减少了服务器请求的次数<br>更灵活：本质上还是文字，可以通过CSS样式设置颜色、大小、透明度等</li>
+<li>字库<br>国外： icomoon字库  <a href="http://icomoon.io/">http://icomoon.io</a><br>阿里： iconfont字库   <a href="http://www.iconfont.cn/">http://www.iconfont.cn</a></li>
+</ul>
+<h3 id="23-2iconfont-字库"><a href="#23-2iconfont-字库" class="headerlink" title="23.2iconfont  字库"></a>23.2iconfont  字库</h3><ul>
+<li>进入官网<br>选择图标<br>生成字体<br>下载字体</li>
+<li>将字体图标引入到HTML</li>
+<li>追加字体图标</li>
+</ul>
+<h2 id="24-CSS选择器命名规范"><a href="#24-CSS选择器命名规范" class="headerlink" title="24.CSS选择器命名规范"></a>24.CSS选择器命名规范</h2><ul>
+<li>长名称或词组可以使用中横线来为选择器命名<br>不建议使用“_”下划线来命名CSS选择器，为什么呢？ top-banner<br>输入的时候少按一个shift键；<br>浏览器兼容问题 （比如使用_tips的选择器命名，在IE6是无效的）<br>能良好区分JavaScript变量命名（JS变量命名是用“_”）</li>
+<li>不要随意使用id<br>id在JS是唯一的，不能多次使用，而使用class类选择器却可以重复使用，另外id的优先级优先与class，所以id应该按需使用，而不能滥用</li>
+<li>为选择器添加状态前缀<br>有时候可以给选择器添加一个表示状态的前缀，让语义更明了<br>例如：is-active</li>
+</ul>
+<h2 id="25-前端切图"><a href="#25-前端切图" class="headerlink" title="25.前端切图"></a>25.前端切图</h2><ul>
+<li>图层切图<ul>
+<li>单击需要切的图片，则会自动选择所在图层</li>
+<li>右击图片所在图层-&gt;快速导出为PNG</li>
+<li>当图片由多个图层组成时，需要选中所有图层，合并图层（ctr+e）后才能导出</li>
+<li>如果想导出成非png格式，可以选择“导出为”来选择指定图片格式进行导出</li>
+</ul>
+</li>
+<li>切片切图<ul>
+<li>利用切片选中图片</li>
+<li>导出-&gt;存储为web所用格式（ctrl+Alt+shift+s）</li>
+<li>存储时选择选中的切片保存 </li>
+</ul>
+</li>
+<li>cuteman切图<ul>
+<li>下载安装、注册、登录</li>
+<li><a href="http://www.cutterman.cn/zh">http://www.cutterman.cn/zh</a></li>
+<li>一键导出</li>
+</ul>
+</li>
+<li>蓝湖切图<ul>
+<li>1、登录蓝湖官网 <a href="https://lanhuapp.com/">https://lanhuapp.com</a></li>
+<li>2、注册账户</li>
+<li>3、下载phtoshop插件</li>
+<li>4、安装phtoshop插件，安装成功后，打开路径为：窗口-扩展功能-蓝湖</li>
+<li>5、标记切图</li>
+<li>6、上传项目到蓝湖官网</li>
+<li>7、前往蓝湖官网，下载切图</li>
+</ul>
+</li>
+<li>摹客切图<ul>
+<li>操作和蓝湖类似    <a href="https://www.mockplus.cn/">https://www.mockplus.cn</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="26-BFC"><a href="#26-BFC" class="headerlink" title="26.BFC"></a>26.BFC</h2><p>FC即格式化上下文（Formatting Context）是W3C CSS2.1规范中的一个概念，它是页面中的一块渲染区域，并有一套渲染规则，它决定了其子元素将如何定位，以及和其它元素的关系和相互作用<br>常见的Formatting Context 有：Block Formatting Context（BFC | 块级格式化上下文） 和 Inline Formatting Context（IFC |行内格式化上下文）。</p>
+<h3 id="26-1什么是BFC"><a href="#26-1什么是BFC" class="headerlink" title="26.1什么是BFC"></a>26.1什么是BFC</h3><ul>
+<li>BFC即块格式化上下文（Block Formatting Context）</li>
+<li>BFC内部元素的元素在垂直方向上的边距会发生重叠</li>
+<li>BFC不会与浮动元素重叠</li>
+<li>BFC是独立的容器，不会影响里面的元素，里面的元素也不会影响外面元素</li>
+<li>计算BFC元素高度时，浮动元素也会参与计算</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;one&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;two&quot;&gt;&lt;/div&gt;</span><br><span class="line"> &lt;/div&gt;</span><br><span class="line">  </span><br><span class="line">  div.one &#123;</span><br><span class="line">        overflow: hidden;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">        background: #f00;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">div.two &#123;</span><br><span class="line">       width: 100px;</span><br><span class="line">       height: 100px;</span><br><span class="line">       background: #0f0;</span><br><span class="line">       margin-top: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="26-2产生BFC的条件"><a href="#26-2产生BFC的条件" class="headerlink" title="26.2产生BFC的条件"></a>26.2产生BFC的条件</h3><ul>
+<li>根元素或包含根元素的元素</li>
+<li>浮动元素</li>
+<li>定位元素：position为absolute或fixed</li>
+<li>overflow 值不为 visible 的块元素</li>
+<li>行内块元素：display为inline-block、 table-cell、 flex</li>
+</ul>
+<h3 id="26-3BFC的用处"><a href="#26-3BFC的用处" class="headerlink" title="26.3BFC的用处"></a>26.3BFC的用处</h3><ul>
+<li>防止垂直方向margin合并（margin穿透问题）</li>
+<li>防止margin溢出（防止子元素margin传递问题）</li>
+<li>两栏自适应布局</li>
+<li>清除浮动</li>
+</ul>
+<h2 id="27-布局"><a href="#27-布局" class="headerlink" title="27.布局"></a>27.布局</h2><h3 id="27-1等高布局"><a href="#27-1等高布局" class="headerlink" title="27.1等高布局"></a>27.1等高布局</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;div class=&quot;parent&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;one&quot;&gt;</span><br><span class="line">             &lt;p&gt;one&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;two&quot;&gt;</span><br><span class="line">            &lt;p&gt;two&lt;/p&gt;</span><br><span class="line">         &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;three&quot;&gt;</span><br><span class="line">            &lt;p&gt;three&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;three&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;three&lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;        </span><br><span class="line">/* 方案一 */</span><br><span class="line">.parent &#123;</span><br><span class="line">      overflow: hidden;</span><br><span class="line">      width: 100%;</span><br><span class="line"> &#125;</span><br><span class="line">      </span><br><span class="line">.one,.two,.three &#123;</span><br><span class="line">       float: left;</span><br><span class="line">       width: 33.33%;</span><br><span class="line">       margin-bottom: -9999px;</span><br><span class="line">       padding-bottom: 9999px;</span><br><span class="line">&#125;</span><br><span class="line">/* 方案二 */</span><br><span class="line"> .parent &#123;</span><br><span class="line">       display: table;</span><br><span class="line">       width: 100%;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  /* 表格中的单元格默认就是等高的*/   </span><br><span class="line">.one,.two,.three &#123;</span><br><span class="line">       display: table-cell;</span><br><span class="line">       width: 33.33%;</span><br><span class="line"> &#125;    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="27-2圣杯布局-双飞翼布局"><a href="#27-2圣杯布局-双飞翼布局" class="headerlink" title="27.2圣杯布局/双飞翼布局"></a>27.2圣杯布局/双飞翼布局</h3><p>圣杯布局和双飞翼布局是前端工程师需要日常掌握的重要布局方式。两者的功能相同，都是为了实现一个两侧宽度固定，中间宽度自适应的三栏布局。</p>
+<ul>
+<li>margin负值+relative定位实现</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;center&quot;&gt;</span><br><span class="line">            中</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;</span><br><span class="line">            左</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;right&quot;&gt;</span><br><span class="line">            右</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;   </span><br><span class="line">.parent &#123;</span><br><span class="line">      margin: 0 200px;</span><br><span class="line">      height: 200px;</span><br><span class="line">&#125;     </span><br><span class="line">.left,.right &#123;</span><br><span class="line">       position: relative;</span><br><span class="line">       float: left;</span><br><span class="line">       width: 200px;</span><br><span class="line">       height: 200px;</span><br><span class="line">&#125;   </span><br><span class="line"> .center &#123;</span><br><span class="line">       float: left;</span><br><span class="line">       width: 100%;</span><br><span class="line">       height: 200px;</span><br><span class="line">       background: yellowgreen;</span><br><span class="line">&#125;</span><br><span class="line"> .left &#123;</span><br><span class="line">      left: -200px;</span><br><span class="line">      margin-left: -100%;</span><br><span class="line">      background: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.right &#123;</span><br><span class="line">      left: 200px;</span><br><span class="line">      margin-left: -200px;</span><br><span class="line">      background: pink;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="27-3双飞翼布局"><a href="#27-3双飞翼布局" class="headerlink" title="27.3双飞翼布局"></a>27.3双飞翼布局</h3><p>增加了一个标签，CSS部分简单</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"> &lt;div class=&quot;parent&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;center&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;center-content&quot;&gt;中&lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;left&quot;&gt;</span><br><span class="line">            左</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div class=&quot;right&quot;&gt;</span><br><span class="line">            右</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;   </span><br><span class="line"> .parent &#123;</span><br><span class="line">       width: 100%;</span><br><span class="line"> &#125;</span><br><span class="line">        </span><br><span class="line">.left,.right &#123;</span><br><span class="line">        float: left;</span><br><span class="line">        width: 200px;</span><br><span class="line">        height: 200px;</span><br><span class="line">&#125;</span><br><span class="line">        </span><br><span class="line">.center &#123;</span><br><span class="line">      width: 100%;</span><br><span class="line">      height: 200px;</span><br><span class="line">      background: yellowgreen;</span><br><span class="line">&#125;</span><br><span class="line">      .center-content &#123;</span><br><span class="line">            margin: 0 200px;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .left &#123;</span><br><span class="line">            background: red;</span><br><span class="line">            margin-left: -100%;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        .right &#123;</span><br><span class="line">            background: pink;</span><br><span class="line">            margin-left: -200px;</span><br><span class="line">        &#125;  </span><br></pre></td></tr></table></figure>
+
+</h1>]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
   </entry>
   <entry>
     <title>vue面试题</title>
