@@ -180,7 +180,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-04-13 12:12:57 / 修改时间：15:30:04" itemprop="dateCreated datePublished" datetime="2022-04-13T12:12:57+08:00">2022-04-13</time>
+              <time title="创建时间：2022-04-13 12:12:57 / 修改时间：15:37:05" itemprop="dateCreated datePublished" datetime="2022-04-13T12:12:57+08:00">2022-04-13</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -384,8 +384,7 @@
 <h2 id="5-9表格标签"><a href="#5-9表格标签" class="headerlink" title="5.9表格标签"></a>5.9表格标签</h2><p>表格主要用于显示、展示数据，因为它可以让数据显示的非常的规整，可读性非常好。特别是后台展示数据<br>的时候，能够熟练运用表格就湿得很重要。一个清爽简约的表格能够把察杂的数掘表现得很有条理，</p>
 <ul>
 <li><p>表格的基本语法</p>
-<p>1.<table></table>是用于定义表格的标签。<br>2.<tr></tr>标签用于定义表格中的行，必须嵌套在<table></table>标签中。<br>3.<td></td>用于定义表格中的单元格，必须嵌在<tr>标签中。<br>4.字母td指表格数据(table data),即数据弹元格的内容。</tr></p>
-</li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.&lt;table&gt;&lt;/table&gt;是用于定义表格的标签。</span><br><span class="line">2.&lt;tr&gt;&lt;/tr&gt;标签用于定义表格中的行，必须嵌套在&lt;table&gt;&lt;/table&gt;标签中。</span><br><span class="line">3.&lt;td&gt;&lt;/td&gt;用于定义表格中的单元格，必须嵌在&lt;tr&gt;&lt;/r&gt;标签中。</span><br><span class="line">4.字母td指表格数据(table data),即数据弹元格的内容。</span><br></pre></td></tr></table></figure></li>
 <li><p>表头单元格标签th</p>
 <p>1.位于表格第一行或第一列，单元格中的内容加粗居中</p>
 </li>
@@ -418,20 +417,17 @@
 <h3 id="5-10-1无序列表"><a href="#5-10-1无序列表" class="headerlink" title="5.10.1无序列表"></a>5.10.1无序列表</h3><p>一般会以项目符号呈现列表项</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">       &lt;li&gt;榴莲&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;臭豆腐&lt;/li&gt;</span><br><span class="line">       &lt;li&gt;鲱鱼罐头&lt;/li&gt;</span><br><span class="line">   &lt;/ul&gt;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>无序列表的各个列表项之间没有顺序级别之分，是并列的</li>
-<li>ul中只能嵌套li标签</li>
-<li>li与li之间相当于一个容器，可以容纳所有元素</li>
-<li>无序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置</li>
-</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- 无序列表的各个列表项之间没有顺序级别之分，是并列的</span><br><span class="line">- ul中只能嵌套li标签</span><br><span class="line">- li与li之间相当于一个容器，可以容纳所有元素</span><br><span class="line">- 无序列表会带有自己的样式属性，但在实际使用时，我们会使用CSS来设置</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="5-10-2有序列表"><a href="#5-10-2有序列表" class="headerlink" title="5.10.2有序列表"></a>5.10.2有序列表</h3><p>有序列表即为有排列顺序的列表，其名个列表项会按照定的顺序排列定义<br>在HTML标签中，<ol>标签用于定义有序列表，列表排序以数字来显示，并目使用<li>标签来定义列表项。</li></ol></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol&gt;</span><br><span class="line">     &lt;li&gt;刘德华 10000&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;刘若英 1000&lt;/li&gt;</span><br><span class="line">     &lt;li&gt;pink老师 1&lt;/li&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>1.<ol><ol>中只能嵌套<i>&lt;n及，直接在<o><o>标签中输入其他标签或者文字的做法是不被允许的。</o></o></i></ol></ol></li>
-<li>2.<i>与&lt;川i&gt;之间相当于一个容器，可以容纳所有元素。</i></li>
-<li>3.有序列表会带有自己样式属性，但在实际使用时，我们会使用CSS来设置。</li>
-</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 1.&lt;ol&gt;&lt;ol&gt;中只能嵌套&lt;i&gt;&lt;n及，直接在&lt;o&gt;&lt;o&gt;标签中输入其他标签或者文字的做法是不被允许的。</span><br><span class="line">- 2.&lt;i&gt;与&lt;川i&gt;之间相当于一个容器，可以容纳所有元素。</span><br><span class="line">- 3.有序列表会带有自己样式属性，但在实际使用时，我们会使用CSS来设置。</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="5-10-3自定义列表"><a href="#5-10-3自定义列表" class="headerlink" title="5.10.3自定义列表"></a>5.10.3自定义列表</h3><p>自定义列表的列表项前没有任何项目符号</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dl&gt;</span><br><span class="line">        &lt;dt&gt;关注我们&lt;/dt&gt;</span><br><span class="line">        &lt;dd&gt;新浪微博&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;官方微信&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;联系我们&lt;/dd&gt;</span><br><span class="line">        &lt;dt&gt;关注我们&lt;/dt&gt;</span><br><span class="line">        &lt;dd&gt;新浪微博&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;官方微信&lt;/dd&gt;</span><br><span class="line">        &lt;dd&gt;联系我们&lt;/dd&gt;</span><br><span class="line">    &lt;/dl&gt;</span><br></pre></td></tr></table></figure>
 
@@ -447,14 +443,10 @@
 <li>method:属性值(get\post)，用于设置表单数据的提交方式，其取值为get或post</li>
 <li>name:属性值(名称)，用于指定表单的名称，以区分同一个页面中的多个表单域</li>
 </ul>
-<h3 id="5-11-2表单控件"><a href="#5-11-2表单控件" class="headerlink" title="5.11.2表单控件"></a>5.11.2表单控件</h3><h4 id="5-11-2-1input表单元素"><a href="#5-11-2-1input表单元素" class="headerlink" title="5.11.2.1input表单元素"></a>5.11.2.1input表单元素</h4><p><input>:标签用于收集用户信息，在input标签中，包含type属性，根据不同的type属性值，输入字段拥有多种形式(如：文本字段、复选框、掩码后的文本控件、单选按钮、按钮)</p>
-<p>type可用属性值为：buttom(按钮)、checkbox(复选框)、file(浏览，文件上传)、hidden（隐藏）、image(图片)、password(密码字段，字符掩码)、radio(单选框)、reset(重置按钮)、submit(提交按钮)、text(单行输入字段，默认宽度20个字符)</p>
-<ul>
-<li>name=(用户自定义)，定义input元素的名称</li>
-<li>value=(用户自定义)，规定input元素的值</li>
-<li>checked=（checked）,规定input元素首次加载时应当被选中</li>
-<li>maxlength=（整整数），规定输入字段中的字符的最大长度</li>
-</ul>
+<h3 id="5-11-2表单控件"><a href="#5-11-2表单控件" class="headerlink" title="5.11.2表单控件"></a>5.11.2表单控件</h3><h4 id="5-11-2-1input表单元素"><a href="#5-11-2-1input表单元素" class="headerlink" title="5.11.2.1input表单元素"></a>5.11.2.1input表单元素</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;input&gt;:标签用于收集用户信息，在input标签中，包含type属性，根据不同的type属性值，输入字段拥有多种形式(如：文本字段、复选框、掩码后的文本控件、单选按钮、按钮)</span><br><span class="line"></span><br><span class="line">type可用属性值为：buttom(按钮)、checkbox(复选框)、file(浏览，文件上传)、hidden（隐藏）、image(图片)、password(密码字段，字符掩码)、radio(单选框)、reset(重置按钮)、submit(提交按钮)、text(单行输入字段，默认宽度20个字符)</span><br><span class="line"></span><br><span class="line">- name=(用户自定义)，定义input元素的名称</span><br><span class="line">- value=(用户自定义)，规定input元素的值</span><br><span class="line">- checked=（checked）,规定input元素首次加载时应当被选中</span><br><span class="line">- maxlength=（整整数），规定输入字段中的字符的最大长度</span><br></pre></td></tr></table></figure>
+
+
+
 <h4 id="5-11-2-1lable表单元素"><a href="#5-11-2-1lable表单元素" class="headerlink" title="5.11.2.1lable表单元素"></a>5.11.2.1lable表单元素</h4><p><a href="label:">label:</a>标签为input:元亲定义标注（标签），<br><abel>标签用于绑定一个表单元察当点击<a href="label:">label:</a>标签内的文本时，刘览器就会自动将焦点（光标转到成者<br>选择对应的表单元素上用来增加用户体验</abel></p>
 <p>语法：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;lable for=&quot;nan&quot;&gt; 男：&lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;nan&quot;&gt;</span><br><span class="line">&lt;lable for=&quot;nv&quot;&gt; 女：&lt;/lable&gt;</span><br><span class="line">&lt;input type=&quot;radio&quot; name=&quot;sex&quot; id=&quot;nv&quot;&gt;</span><br></pre></td></tr></table></figure>
