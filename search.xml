@@ -402,23 +402,6 @@
       </tags>
   </entry>
   <entry>
-    <title>echarts</title>
-    <url>/2022/04/20/echarts/</url>
-    <content><![CDATA[<h1 id="一、ECharts基本使用"><a href="#一、ECharts基本使用" class="headerlink" title="一、ECharts基本使用"></a>一、ECharts基本使用</h1><h2 id="1-使用五步曲"><a href="#1-使用五步曲" class="headerlink" title="1.使用五步曲"></a>1.使用五步曲</h2><h3 id="1-1步骤一："><a href="#1-1步骤一：" class="headerlink" title="1.1步骤一："></a>1.1步骤一：</h3><p>下载并引入echarts.js文件</p>
-<p>网址：<a href="https://echarts.apache.org/zh/">Apache ECharts</a></p>
-<h3 id="1-2步骤二："><a href="#1-2步骤二：" class="headerlink" title="1.2步骤二："></a>1.2步骤二：</h3><p>准备一个具备大小的DOM容器</p>
-<h3 id="1-3步骤三："><a href="#1-3步骤三：" class="headerlink" title="1.3步骤三："></a>1.3步骤三：</h3><p>初始化echarts实例对象</p>
-<h3 id="1-4步骤四："><a href="#1-4步骤四：" class="headerlink" title="1.4步骤四："></a>1.4步骤四：</h3><p>指定配置项和数据</p>
-<h3 id="1-5步骤五："><a href="#1-5步骤五：" class="headerlink" title="1.5步骤五："></a>1.5步骤五：</h3><p>将配置项设置echarts实例</p>
-]]></content>
-      <categories>
-        <category>学习笔记</category>
-      </categories>
-      <tags>
-        <tag>echartsji</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>javascript高级</title>
     <url>/2022/04/20/javascript%E9%AB%98%E7%BA%A7/</url>
     <content><![CDATA[]]></content>
